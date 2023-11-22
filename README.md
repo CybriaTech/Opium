@@ -8,6 +8,10 @@
 
 🕹Opium Games is a free unblocked games service hosting over 100+ unblocked games, also includes many selectable proxies and emulators to use along with tab cloakers and history hiders! 🎮
 
+> ## Contributors
+>
+> ### X-88
+
 # Socials
 
 <a href="https://discord.gg/e2UXEwjcsg"><img height="30px" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"><img></a>

@@ -1,6 +1,6 @@
 <p align="center">
 <kbd>
-<img width="150px" src="/static/imges/logo/opium-logo.png">
+<img width="150px" src="static/images/logo/opium-logo.png">
 </kbd>
 </p>
 

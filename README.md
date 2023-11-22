@@ -15,8 +15,6 @@
 
 # Deploy
 
-Note, since web hosting servies like Github Pages, Cloudflare Pages, Vercel and Netlify cannot support Proxies since they are static hosting services, There will be a feature where the if the proxy dosent work, the user can choose other Servers to use.
-
 ## Free
 
 <a target="_blank" href="https://vercel.com/new/clone?repository-url=https://github.com/CybriaTech/Opium"><img alt="Deploy to Vercel" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/vercel.svg"></a>

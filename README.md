@@ -1,12 +1,12 @@
 <p align="center">
 <kbd>
-<img width="150px" src="static/images/logo/opium-logo.png">
+<img width="150px" src="/images/logo/opium-logo.png">
 </kbd>
 </p>
 
 <h1 align="center">Opium Games</h1>
 
-🕹Opium Games is a free unblocked games service hosting over 100+ unblocked games, also includes a built-in UV proxy and apps to use along with tab cloakers and history hiders! 🎮
+🕹Opium Games is a free unblocked games service hosting over 100+ unblocked games, also includes many selectable proxies and emulators to use along with tab cloakers and history hiders! 🎮
 
 # Socials
 

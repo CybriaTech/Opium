@@ -8,9 +8,7 @@
 
 🕹Opium Games is a free unblocked games service hosting over 100+ unblocked games, also includes many selectable proxies and emulators to use along with tab cloakers and history hiders! 🎮
 
-> ## Contributors
->
-> ### X-88
+### Testing Site: https://opium-tst.neocities.org
 
 # Socials
 

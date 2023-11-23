@@ -28,11 +28,12 @@
     <script src="js/header.js"></script>
     <main>
         <h1 class="title-index">Bookmarklets</h1>
+        <h3 class="desc">Just Click To Copy, That's All!</h3>
         <br>
         <div id="bookmarklets">
             <h3 class="title-bookmarklet">Hacks</h3>
             <button class="play-bookmarklet" onclick="copyCode('javascript: fetch(\'https://raw.githubusercontent.com/Skoolgq/skoolgq.github.io/main/js/hacks/edpuzzle.js\').then(r => r.text()).then(r => eval(r))')">EdPuzzle</button>
-            <button class="play-bookmarklet" onclick="window.location.href='https://raw.githubusercontent.com/sc0ttferren/scottassets/main/assets/raw/blooket';">Blooket (LINK)</button>
+            <button class="play-bookmarklet" onclick="copyCode('javascript: fetch(\'https://raw.githubusercontent.com/sc0ttferren/scottassets/main/assets/raw/blooket\').then(r => r.text()).then(r => eval(r))')">Blooket</button>
             <button class="play-bookmarklet" onclick="copyCode('javascript:(function () {var a = document.createElement(\'script\');a.src = \'https://cdn.jsdelivr.net/gh/FogNetwork/Ingot/ingot.min.js\';document.body.appendChild(a);}())')">Ingot (EXT REMOVER)</button>
         </div>
         <br>

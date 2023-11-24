@@ -1,7 +1,7 @@
 document.write(`
   <header>
     <a class="title" href="/">
-      <img src="images/logo/opium-clear.png" width="128" height="128">
+      <img src="/images/logo/opium-clear.png" width="128" height="128">
       <h2>Opium</h2>
     </a>
     <nav>

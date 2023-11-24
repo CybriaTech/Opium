@@ -5,12 +5,12 @@ document.write(`
       <h2>Opium</h2>
     </a>
     <nav>
-      <a href="games.html">Games</a>
-      <a href="proxy.html">Proxy</a> 
-      <a href="bookmarklets.html">Bookmarklets</a> 
-      <a href="soundboard.html">Soundboard</a> 
+      <a href="/games.html">Games</a>
+      <a href="/proxy.html">Proxy</a> 
+      <a href="/bookmarklets.html">Bookmarklets</a> 
+      <a href="/soundboard.html">Soundboard</a> 
       <a href="/emulators">Emulators</a> 
-      <a href="settings.html"><i class="fas fa-cog"></i></a>
+      <a href="/settings.html"><i class="fas fa-cog"></i></a>
     </nav>
   </header>
 `);

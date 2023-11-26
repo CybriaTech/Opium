@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Slope",
+    "url": "/games/slope",
+    "image": "/images/games/slope.jpg"
+  },
+  {
+    "title": "FNAW",
+    "url": "/games/fnaw",
+    "image": "/images/games/fnaw.jpg"
+  },
+  {
+    "title": "Monkey Mart",
+    "url": "/games/monkey-mart",
+    "image": "/images/games/monkeymart.jpeg"
+  },
+  {
+    "title": "Chrome Dino",
+    "url": "/games/chrome-dino",
+    "image": "/images/games/chromedino.jpg"
+  },
+  {
+    "title": "Cubefield",
+    "url": "/games/cubefield",
+    "image": "/images/games/cubefield.jpg"
+  },
+  {
+    "title": "Bloon's TD",
+    "url": "/games/btd",
+    "image": "/images/games/btd.jpg"
+  }
+]

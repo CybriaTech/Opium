@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="139.38834093630942" height="43.46372698367269" viewBox="0.1926268407671068 -0.7712521931560423 139.38834093630942 43.46372698367269">
+  <!-- Exported by Scratch - http://scratch.mit.edu/ -->
+  <image id="ID0.8977372874505818" width="2" height="2" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAADklEQVR42mNhgAIWGAMAAH4ACYwGaSAAAAAtdEVYdFNvZnR3YXJlAGJ5LmJsb29kZHkuY3J5cHRvLmltYWdlLlBORzI0RW5jb2RlcqgGf+4AAAAASUVORK5CYII=" transform="matrix(0.5,0,0,0.5,68,37)" stroke-width="1" style="image-rendering: optimizespeed; image-rendering: pixelated;"/>
+  <path id="ID0.6407612515613437" fill="#000000" stroke="none" d="M 0.7736 0.1559 L 105.7736 0.1559 L 105.7736 42.1115 L 0.7736 42.1115 L 0.7736 0.1559 Z " stroke-width="1.1619462829891019"/>
+  <text id="ID0.6562941269949079" fill="#FFFFFF" text-anchor="start" font-family="Sans Serif" font-size="22" transform="matrix(1.17485 0 0 1.27435 14.3497 -1.82304)" stroke-width="1" alignment-baseline="text-before-edge" xml:space="preserve"><tspan x="0" style="white-space: pre" dy="1.13em">Radar</tspan></text>
+  <text id="ID0.22914528846740723" fill="#FF0000" text-anchor="start" font-family="Sans Serif" font-size="22" transform="matrix(1 0 0 1 105 5.15)" stroke-width="1" alignment-baseline="text-before-edge" xml:space="preserve"><tspan x="0" style="white-space: pre" dy="1.13em">Off</tspan></text>
+</svg>

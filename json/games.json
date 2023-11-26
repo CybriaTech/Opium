@@ -28,5 +28,15 @@
     "title": "Bloon's TD",
     "url": "/games/btd",
     "image": "/images/games/btd.jpg"
+  },
+  {
+    "title": "FNAF 1",
+    "url": "/games/fnaf-1",
+    "image": "/images/games/fnaf-1.jpg"
+  },
+  {
+    "title": "FNAF 2",
+    "url": "/games/fnaf-2",
+    "image": "/images/games/fnaf-2.jpg"
   }
 ]

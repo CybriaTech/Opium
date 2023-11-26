@@ -5,6 +5,11 @@
     "image": "/images/games/slope.jpg"
   },
   {
+    "title": "Slope 2",
+    "url": "/games/slope-2",
+    "image": "/images/games/slope-2.png"
+  },
+  {
     "title": "FNAW",
     "url": "/games/fnaw",
     "image": "/images/games/fnaw.jpg"

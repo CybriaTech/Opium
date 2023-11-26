@@ -93,44 +93,7 @@
     <br>
         <h1 class="title-index">Games</h1>
         <br>
-        <div id="games">
-        <div class="game">
-<a href="/games/slope">
-<img alt="slope" src="/images/games/slope.jpg"/>
-<p class="game-title">Slope</p>
-</a>
-</div>
-<div class="game">
-<a href="/games/fnaw">
-<img alt="fnaw" src="/images/games/fnaw.jpg"/>
-<p class="game-title">FNAW</p>
-</a>
-</div>
-<div class="game">
-<a href="/games/monkey-mart">
-<img alt="monkey mart" src="/images/games/monkeymart.jpeg"/>
-<p class="game-title">Monkey Mart</p>
-</a>
-</div>
-<div class="game">
-<a href="/games/chrome-dino">
-<img alt="chrome dino" src="/images/games/chromedino.jpg"/>
-<p class="game-title">Chrome Dino</p>
-</a>
-</div>
-<div class="game">
-<a href="/games/cubefield">
-<img alt="cubefield" src="/images/games/cubefield.jpg"/>
-<p class="game-title">Cubefield</p>
-</a>
-</div>
-<div class="game">
-<a href="/games/btd">
-<img alt="btd" src="/images/games/btd.jpg"/>
-<p class="game-title">Bloon's TD</p>
-</a>
-</div>
-</div>
+        <div id="games"></div>
     </main>
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -172,6 +135,35 @@ var msnry = new Masonry( elem, {
   itemSelector: '.grid-item',
   columnWidth: 600
 });
+</script>
+<script>
+  fetch('/json/games.json')
+    .then(response => response.json())
+    .then(games => {
+      const gamesContainer = document.getElementById('games');
+
+      games.forEach(game => {
+        const gameElement = document.createElement('div');
+        gameElement.classList.add('game');
+
+        const gameLink = document.createElement('a');
+        gameLink.href = game.url;
+
+        const gameImage = document.createElement('img');
+        gameImage.alt = game.title;
+        gameImage.src = game.image;
+
+        const gameTitle = document.createElement('p');
+        gameTitle.classList.add('game-title');
+        gameTitle.textContent = game.title;
+
+        gameLink.appendChild(gameImage);
+        gameLink.appendChild(gameTitle);
+        gameElement.appendChild(gameLink);
+        gamesContainer.appendChild(gameElement);
+      });
+    })
+    .catch(error => console.error('Error loading games:', error));
 </script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

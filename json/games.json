@@ -40,6 +40,11 @@
     "image": "/images/games/btd-2.webp"
   },
   {
+    "title": "Bloon's TD 3",
+    "url": "/games/btd-3",
+    "image": "/images/games/btd-3.jpg"
+  },
+  {
     "title": "FNAF 1",
     "url": "/games/fnaf-1",
     "image": "/images/games/fnaf-1.jpg"

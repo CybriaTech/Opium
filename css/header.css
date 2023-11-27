@@ -2,7 +2,6 @@
 
 header {
   display: flex;
-  position: fixed;
   align-items: center;
   justify-content: space-between;
   background-color: #1f1f1f;

@@ -48,5 +48,10 @@
     "title": "FNAF 2",
     "url": "/games/fnaf-2",
     "image": "/images/games/fnaf-2.jpg"
+  },
+  {
+    "title": "FNAF 3",
+    "url": "/games/fnaf-3",
+    "image": "/images/games/fnaf-3.webp"
   }
 ]

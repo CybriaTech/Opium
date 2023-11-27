@@ -63,5 +63,10 @@
     "title": "FNAF 4",
     "url": "/games/fnaf-4",
     "image": "/images/games/fnaf-4.webp"
+  },
+  {
+    "title": "Astray",
+    "url": "/games/astray",
+    "image": "/images/games/astray.png"
   }
 ]

@@ -65,6 +65,11 @@
     "image": "/images/games/fnaf-4.webp"
   },
   {
+    "title": "FNAF UCN",
+    "url": "/games/fnaf-ucn",
+    "image": "/images/games/fnaf-ucn.webp"
+  },
+  {
     "title": "Astray",
     "url": "/games/astray",
     "image": "/images/games/astray.png"

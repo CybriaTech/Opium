@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!-- Created with https://packager.turbowarp.org/ -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- We only include this to explicitly loosen the CSP of various packager environments. It does not provide any security. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: blob:">
+  <title>FNAF UCN | Opium</title>
+              <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
+    <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
+          <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-20CSCVKLF3');
+</script>
+  <style>
+    body {
+      color: #ffffff;
+      font-family: sans-serif;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    :root, body.is-fullscreen {
+      background-color: #000000;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    h1 {
+      font-weight: normal;
+    }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    #app, #loading, #error, #launch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: default;
+      user-select: none;
+      -webkit-user-select: none;
+      background-color: #000000;
+    }
+    #launch {
+      background-color: rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+    }
+    .green-flag {
+      width: 80px;
+      height: 80px;
+      padding: 16px;
+      border-radius: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      border: 3px solid hsla(0, 100%, 100%, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    #loading {
+      
+    }
+    .progress-bar-outer {
+      border: 1px solid currentColor;
+      height: 10px;
+      width: 200px;
+      max-width: 200px;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      width: 0;
+      background-color: currentColor;
+    }
+    .loading-text, noscript {
+      font-weight: normal;
+      font-size: 36px;
+      margin: 0 0 16px;
+    }
+    .loading-image {
+      margin: 0 0 16px;
+    }
+    #error-message, #error-stack {
+      font-family: monospace;
+      max-width: 600px;
+      white-space: pre-wrap;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+    #error-stack {
+      text-align: left;
+      max-height: 200px;
+      overflow: auto;
+    }
+    .control-button {
+      width: 2rem;
+      height: 2rem;
+      padding: 0.375rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+      border: 0;
+      border-radius: 4px;
+    }
+    .control-button:hover {
+      background: #ff4c4c26;
+    }
+    .control-button.active {
+      background: #ff4c4c59;
+    }
+    .fullscreen-button {
+      background: white !important;
+    }
+    .standalone-fullscreen-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 0 0 0 4px;
+      padding: 4px;
+      cursor: pointer;
+    }
+    .sc-canvas {
+      cursor: auto;
+    }
+    .sc-monitor-root[data-opcode^="data_"] .sc-monitor-value-color {
+      background-color: #ff8c1a;
+    }
+    .sc-monitor-row-value-outer {
+      background-color: #fc662c;
+    }
+    .sc-monitor-row-value-editing .sc-monitor-row-value-outer {
+      background-color: #e25b27;
+    }
+    
+  </style>
+  <meta name="theme-color" content="#000000">
+  
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="launch" class="screen" hidden title="Click to start">
+    <div class="green-flag">
+      <svg viewBox="0 0 16.63 17.5" width="42" height="44">
+        <defs><style>.cls-1,.cls-2{fill:#4cbf56;stroke:#45993d;stroke-linecap:round;stroke-linejoin:round;}.cls-2{stroke-width:1.5px;}</style></defs>
+        <path class="cls-1" d="M.75,2A6.44,6.44,0,0,1,8.44,2h0a6.44,6.44,0,0,0,7.69,0V12.4a6.44,6.44,0,0,1-7.69,0h0a6.44,6.44,0,0,0-7.69,0"/>
+        <line class="cls-2" x1="0.75" y1="16.75" x2="0.75" y2="0.75"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="loading" class="screen">
+    <noscript>Enable JavaScript</noscript>
+    <h1 class="loading-text">CybriaGames</h1>
+    <div class="loading-image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABblBMVEVHcEwkICMqJysjHyEjHiAoJSgnJCYODg8uKi0iHiAjHyEiHiAjHyEtIhcoJCgiHiAjICInIyYjHiAiHyAjHyAcGhslIiUkICNUUlZ1c3hyd3hxdHdydXd0d3pydXhzdndwc3ZzdnhzdnlxdXdydnhydXb5+vpvcnP7/PxvcnZwdHhxdHVWWFouLC4lISIoJSd1eH1UVVciHh9tcHNvcHH///9pa25QUFIrKSpsbW8fGxwxMDJbXF48OjxAP0H/0mRLSkxFREZnaWxhYmRlZmdeX2A2MzXP0dQ5Njj/1GgXExQbFhhWx/b6zmHe3t/U1th/f4CGiIvs7O2d0OLHycp52f1/eWvwymaQkZOurq//2Whjz/meg0S7n1zkwGJ3YTX/1m1byva5ubtjTShRQSSm4vpVyPRANB+Tgl3etl++v8GbmpxsaWCducXNq1vTsVaRvMyBn62joqNhcnzRtGqFazif4fyFbjT/2XBHcExmSEoRAAAAenRSTlMAmQfvVTEhAQ3K3L33/zvlchRjr9XxSYSM+v//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AD+ycYkAAA7PSURBVHja7JfpX9raFoaLVFHq2Hr13CaQAMaImchgRkgzQSPU6TjWuXN7Opz2TPf++XftnaA4tNV+OOd+4JUfBW14H9611t47d+701VdfffXVV1999dVXX3319f+uXO4fNe8Kvfnnv3vu7w0NPmV4aLBHU7e6cDzV4NDwj/rnZu5NZP91puzI4E0vvQsXZkexstmJe/d/DGF4Nis4jiMIgokliQ9u9kG5yVHJNLP5/PTIyMj0dH5UfDD0IwnMSl6g6/BAsiw9cMXZ3J3c9wqcuzOTdbXyv38aTwo3PvOTIdz7AYKZrGmK55IkSbRHJwd6JqNnQnrG5s5g3jYFwcnmp0H5fH4ibjhiZuDWAWQkqeViNc4kjM5eR3BBQyNKK27E6IGe4KrYkZTs+G0B7mZNw6JpAoshaLrKsmwUi5nv9MHgiGKoVZDalWZZfOum/XPuP2HKHEFzTCKSZBiO40irIWaGhgdSDV/VzLTIL6aiE1WrHBM1pMzU7fyFepEksDf2JzEHTWq+lL/Xo5FLyjrNYupPpAA0RMdZvpS5RQYzE0KzVCSRGPxMgeAfgigycsuUJHgkMs9eoddCy9O7/pBAlaBVS10kAIDTvFsQjOdTfxQ7x+EIugjFctUKYDiDRN0xTYe1WlyElkntaVWOTUlw61X0KUAwe8NRGBox62XwJziuUqRZmixBATBBgoC0+BURuG2xfzWI22MvX7wcs12L4FhO80cnb+Q/kBHlcrGI0mdDA4bQ53UgoKgzBCDj0vouVherWMnbZGiIRdR6utM++XV3ZffTi06jClkyWiM7cxOAyVGfSRogciVFEUVFdGQu9S9RuCcqCQJ2A4puu3FE+hsE4LdPdpdB+7svOnIZLqACZ/oG28n4RGyVsX9TsM3Y9d0GrIgemwIk/ikAfeZ3WRCA+Ob4EdLy/q9jLZrjWJapm99fDoYfSE1cACoSlNiQeZDRAAKKQq2Y+hNnNbjOHPlXQ/s/y48SrbwQdfAHed9vg/uiVywVwUhtKA1sz8u87IpSs8AkI0letu9tAvSGZausWm3ah/spwKMTJUL2mmY1Jga/vZMNTTt6uQRBl3jFSfwRgtyyGxzF9PpzUPDUW632sKDVl2VVNRo7PH20kiZg6mgtAIKm+WDg23uwyBdKCIBzFZ8/B/BEKSoxvfUPDaOp0jhYNqjXgxQAucNCoaqWewIlWFkBiHdvfCviDTm0NM0bvfvNrWSiwUIAMASWIxk9AIYpyikAHkJWFiRT8HVEoBqOabZkFAN8czZ04U+xHAQf3oE/0p9x0zPHxmy7VdeC1sjUN/fgZqFcLpdIKhCEswoAgSEoRokhKigBiIBsmuAvmD5kQBsSeu3USaBRWVmyYz40Yj+wdt5h/0Ov6b08PPp0dDKmGBovfb0PcxAAB/7lOQRgnrcADIKgeCSUvYLEcKQvCWAqOCFD6w68hqObW6WRv21ubL569epzGGrWztG7409vP3z48Pb49PT0v6eHY2LTauSHvhFAHQUACZCqI3nnFeBRCWB3TnYGOB40TAH/yBUuNNErx4ktSCCQxC+vtg+eHWxv6hacBXZ2NEvT3+6eLp/CY//PdkOti7Nf8x/Kx3ShDAiw3hG+6PL17hjyvmhGVRavdoDAFd0kAZOvkBHyFxwBAdBe+/dXB09Az7a/BMl5BAj+OF3GgiVJDNTG9NcimBTlWrlQKKA5LDcl06h3/Q1HdFkNGg46DQGUZElA/q2A5NQWLobgonmIlc/bT7AONhexPQDs7C6n2n1ph5W6OHn9GjA14lgFLIiA4lzRMVIAuSEKIYsCqHAoAo5RXdSDDk8BDI8DEOoM9KDgbG6/fv36yZPXzzZrKYDWBXi0vwIAtBpfNwhwnJ0Z9QpdwSgGjuh4Mh6BWDR5Ted91zdCDMBxltdyGnVYn6EjZLCH/Yq9AHCAARKC43RR3j9+I+osIV+3FsCJP2NGtTOCcqkQtkQJNiMfNiNB1potuw1SfBWfUwjS0rkS3qCLZb3ORyQKgI3Fz9vPnqESbH+ERTkhUI+6AIdtl2NpXbh6SocAhvKNYqHQS2B5AtwPwD2BG2qR2fHX9zaYVsfH51MgKKFzUmlubg5dVmLQSqsZnd//OkAEB5sbajWNQN35AxHs7x+NSQHaPP2JoWvuw+9Kcq1wUVTAez7EDu3ndYzVJdBWy46o84NaCWmuiE5PEICm6Y745a/tA5jCPfDXauvrnIXa8Gh3ZeUYLQOwmNBEXbp/NYBcRgguAlDwA88M+m6s295YWlhYWFrS2/UrALB14F0haPKeIv3+cXPz44alWutPt7a2nu9ZFmrEtydvJDegcP0s59KWlEsqUL6SAAjsWSDAAPNAwLVlCgYCEaQAXf+ma9odG9QK1UC39Nova4+R9mQL5lfVAys5z0AE/qVdGQHcHTVqKUDt3J/BAPANEoD5hSWtbaB+pxMACloAPhJ+o/t2RzDCiI/tjimjw/LTxP/xluGhzRudZYF4Ds5zRf5iDfANZkaKaoigdiEBfD/CpQnMpwAMmx7XgaDrH7Xa8d7az/BfVn/zO6KhB+RWCrC2LgXwQWRxbg7lNUdyRCBkLt/TTo20qrUkgjMKGDGGsepY8TmA32w2w4hN7pgodEKF6jtteW0JdQm0yWrUEfmo9rgLsKfUy5UKZJUAFOF+pTE9dXEE7gxm/a597TwAkrJiUVEUW7Hb6whgfslqozorok+T3SMaAPhtGBLoEUAEhJ+NThzqZwDrNv8Q1QoA0FOxQi96vbfLGOC6IYQKFJqiJEdRGIbNpwsY4Ld6HRJoOkq9lAJANSLF3MJfP9HSc1GUveerCcBjWQnLcw8fInPEUanQF5sA+edmpfBSC6IAyIJsG6iwV7Rnew+TUyqcTyivTSXWOAEcgdcIVtdQBqvvpRZdfogAKNy0xQqxGJmZiwADDwQL74S9qwB8esGwrYWFq/5LzxV3jksAoElj+3kSQLcI6x3Xk9Yfr66urr1vieiUgQAqFURQLBKE3rsS4B6cbi1etC/goQUA7Rr/+aVfRAxAYQBVEFaX5s9AAeC93Yhi0attrMuSaBQQQBkBkCQG+F+7ZvebqBIF8GqtXzV+1yYLjgWhrSiwohYVNSBoTE2arNmH7et93Mf7/z/cc2YAodZu72aTfeE0jaYFzm8OM2fOx8R3ROqGKiv0/7EZgHO8vTAG96cEj5PXufOF6gcAeTTdvUwi/6UAY2+lzWECq0Oh3f4CCGB7AEB3APvBKhKYIUAZFgFcE7UAGkAW1lP1NXjwgelGObgwszFhhSAVAFQrCgDXfNs74B1c07YHQYwBADwDgBxacS6vYm4I/aAovrUAgZXmaNuNB+L+YA//B+fp14WxHfNyh1mgz+207zEL3Lt7s9OXBRZaiAEAppxoAMip7VI5BlDHaAwJxGNIgp5WFmYObMjgCZ5XBzTB4wNGBfu96gpdP1OS+6K9/zEJX9Tj/eRlq3kd31EJXxiA5APwmFEpZqkVA6hqAwoQWgG2GVYVEfveBjyhaazYG5CfLdu2h2vC+fohT+A9bfkSIcBF0MGtCi0kSTgsUfABeMyne5x5jIp8gMVXEtGP6ZFfFIFv8OEZDgN42NuwRXXkIFWluRrn7L3DxF8Gk8mrDokcT90uCDhgCLTpV5pZUQsMTwHaJGIBUQwAwB2Dso47txnAeG/TzcgfPwW4gx3+2YW9YIJbwf2/1nzY5oUAABCCLyEAZ2oxgFwdklJyNAACkKA8hsMFAJMux8l4b8r+VkjTJDQqJKue+rz79v1wOLy8LgzDhL/SUIl0SVQiAMc5QPsLGfAWRIoCwM2dAABsTt8yrj97jhER6O/6wqEJer31CuKAle1YxtxayBQAxw0XUNXsg80ByKI5+7gMaTxWLjli3AISvT4AkEdbw339+fN1M9/OUD/TzeF44BcIHsYbx9J1XV0OZ1hVC/WHEloA0/i4I7oAT7hUCInoFwNgH4BsrDmGyMbOw+0Pxx3UxDhaNqPVyLW3nskCvh7hDQBw0uexolJvtC3kYwCQFY1EIkQA/FmLhTFKwD9hhGwvxqitH1blWG2s70tQWmaxokSiJmDP86ta62k0JMrRxNilkyAE8Ak69FmUAD8EiBHfqU/1jxLqD9ZAl4sAdP3C3iCaH9KWQ12HWRg3AdwvEIFJR2Dl6j7T3+0GpVH6je4yvBwP1sNFGKoPDaDcOW8iIpgExS28Ayn0xLRMgAg+QMcvmFP1D94GvOOG/ixYhARRIuZsfqAoMRGl2CIk3S57Acpavc6/AaDFCZyG8ZcgRQDoIEG94i51DBSZHLs6lv3UkQMP6SNIJ/opgK3VTxqN5cvdSIgvBCHiP1h5Co3vOXolVa3W6/VMTOqNkmrOBCzkwIznqfuL6w/qqoqnvpegp9AXEd8ZiIF+3L74wIFxRFo7+k2jfNohxbAuUzCs4ZghxG1P+G73qL+3KtXfq9I39U2bJ/6OwHYP/zZFYeoJjH5+nUmf687Wqk1jOxyLBG86sT1T34Ot+EwHqXWpumgDEixCppzdyXFSb7PSjAK2QU/7deEoqkVtO5wJIndkUDguWkVXBvq5onn9xnLFEDt6myIqT8OtcXOdqV1cnGsaBgiFkmp7d22mmHYxjg+CFTicVs61DXL1S3X4IEax0d0RkXsarPR5JdXKX1y837WMoORqmesbfTlc34E/V6gFlaCmz5GRrRVbH3Sdi9py04M5iE0ZxCfkbuaayykMvprNvVV/rnufL6ea2nRpuiNFJGELj1PIaLE1Ch/2MK9SN/rOdJ9GtO795A7spaoZletqOR870PDLEwLZTKpZ0q2VuVjPepRhBCPZaZXb7McnEdKtVEXT1O0OW64qxKOVQqp+lT45T/GJ5m+tddsolrSphZUuZ7W0pqVi6ir3yxMOuWzmtnFdaDYLhUaqmrnK5+LnOf5PAzSdbVVTjUKzWKkUC43bTDb3yRMWuXS+Vqvl0yfHSX7nIAI8KwtSS/uW/9RTcu8dZvlT52J+7yzNnzuW8zsHeS7+jvo/PPLcXz0TlUgiiSSSSCKJJJJIIokkkshZ+Q+SVf2jsEdqDgAAAABJRU5ErkJggg=="></div>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="loading-inner"></div></div>
+  </div>
+
+  <div id="error" class="screen" hidden>
+    <h1>Error</h1>
+    <details>
+      <summary id="error-message"></summary>
+      <p id="error-stack"></p>
+    </details>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const appElement = document.getElementById('app');
+    const launchScreen = document.getElementById('launch');
+    const loadingScreen = document.getElementById('loading');
+    const loadingInner = document.getElementById('loading-inner');
+    const errorScreen = document.getElementById('error');
+    const errorScreenMessage = document.getElementById('error-message');
+    const errorScreenStack = document.getElementById('error-stack');
+
+    const handleError = (error) => {
+      console.error(error);
+      if (!errorScreen.hidden) return;
+      errorScreen.hidden = false;
+      errorScreenMessage.textContent = '' + error;
+      let debug = error && error.stack || 'no stack';
+      debug += '\nUser agent: ' + navigator.userAgent;
+      errorScreenStack.textContent = debug;
+    };
+    const setProgress = (progress) => {
+      if (loadingInner) loadingInner.style.width = progress * 100 + '%';
+    };
+    const interpolate = (a, b, t) => a + t * (b - a);
+
+    try {
+      setProgress(0.1);
+
+      const scaffolding = new Scaffolding.Scaffolding();
+      scaffolding.width = 480;
+      scaffolding.height = 360;
+      scaffolding.resizeMode = "preserve-ratio";
+      scaffolding.editableLists = false;
+      scaffolding.usePackagedRuntime = true;
+      scaffolding.setup();
+      scaffolding.appendTo(appElement);
+
+      const vm = scaffolding.vm;
+      window.scaffolding = scaffolding;
+      window.vm = scaffolding.vm;
+      window.Scratch = {
+        vm,
+        renderer: vm.renderer,
+        audioEngine: vm.runtime.audioEngine,
+        bitmapAdapter: vm.runtime.v2BitmapAdapter,
+        videoProvider: vm.runtime.ioDevices.video.provider
+      };
+
+      scaffolding.setUsername("player####".replace(/#/g, () => Math.floor(Math.random() * 10)));
+      scaffolding.setAccentColor("#ff4c4c");
+
+      try {
+        scaffolding.addCloudProvider(new Scaffolding.Cloud.WebSocketProvider(["wss://clouddata.turbowarp.org","wss://clouddata.turbowarp.xyz"], "919050186"));
+      } catch (error) {
+        console.error(error);
+      }
+
+      vm.setTurboMode(false);
+      if (vm.setInterpolation) vm.setInterpolation(false);
+      if (vm.setFramerate) vm.setFramerate(30);
+      if (vm.renderer.setUseHighQualityRender) vm.renderer.setUseHighQualityRender(false);
+      if (vm.setRuntimeOptions) vm.setRuntimeOptions({
+        fencing: true,
+        miscLimits: true,
+        maxClones: 300,
+      });
+      if (vm.setCompilerOptions) vm.setCompilerOptions({
+        enabled: true,
+        warpTimer: false
+      });
+      if (vm.renderer.setMaxTextureDimension) vm.renderer.setMaxTextureDimension(2048);
+
+      if (typeof ScaffoldingAddons !== 'undefined') {
+        ScaffoldingAddons.run(scaffolding, {"gamepad":false,"pointerlock":false,"specialCloudBehaviors":false,"unsafeCloudBehaviors":false,"pause":false});
+      }
+
+      scaffolding.setExtensionSecurityManager({
+        getSandboxMode: () => 'unsandboxed',
+        canLoadExtensionFromProject: () => true
+      });
+      for (const extension of []) {
+        vm.extensionManager.loadExtensionURL(extension);
+      }
+
+    } catch (e) {
+      handleError(e);
+    }
+  </script>
+  
+  
+    <script>
+      const getProjectData = (function() {
+        const storage = scaffolding.storage;
+        storage.onprogress = (total, loaded) => {
+          setProgress(interpolate(0.2, 0.98, loaded / total));
+        };
+        
+        storage.addWebStore(
+          [
+            storage.AssetType.ImageVector,
+            storage.AssetType.ImageBitmap,
+            storage.AssetType.Sound,
+            storage.AssetType.Font
+          ].filter(i => i),
+          (asset) => new URL('./assets/' + asset.assetId + '.' + asset.dataFormat, location).href
+        );
+        return () => new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+          resolve(xhr.response);
+        };
+        xhr.onerror = () => {
+          if (location.protocol === 'file:') {
+            reject(new Error('Zip environment must be used from a website, not from a file URL.'));
+          } else {
+            reject(new Error('Request to load project data failed.'));
+          }
+        };
+        xhr.onprogress = (e) => {
+          if (e.lengthComputable) {
+            setProgress(interpolate(0.1, 0.2, e.loaded / e.total));
+          }
+        };
+        xhr.responseType = 'arraybuffer';
+        xhr.open('GET', "./assets/project.json");
+        xhr.send();
+      });
+      })();
+    </script>
+  <script>
+    const run = async () => {
+      const projectData = await getProjectData();
+      await scaffolding.loadProject(projectData);
+      setProgress(1);
+      loadingScreen.hidden = true;
+      if (true) {
+        scaffolding.start();
+      } else {
+        launchScreen.hidden = false;
+        launchScreen.addEventListener('click', () => {
+          launchScreen.hidden = true;
+          scaffolding.start();
+        });
+        launchScreen.focus();
+      }
+    };
+    run().catch(handleError);
+  </script>
+</body>
+</html>

@@ -81,7 +81,6 @@
 #particles-js {
 position: absolute;
 width: 100vw;
-height: auto;
 background-color: transparent;
 z-index: -1;
 }
@@ -234,6 +233,10 @@ function setParticlesHeight() {
     particlesDiv.style.height = window.innerHeight + 'px';
 }
 
+setParticlesHeight();
+
+window.addEventListener('resize', setParticlesHeight);
+
 particlesJS('particles-js', {
     particles: {
         number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -251,9 +254,6 @@ particlesJS('particles-js', {
     },
     retina_detect: true
 });
-
-setParticlesHeight();
-window.addEventListener('resize', setParticlesHeight);
 </script>
 <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
     new Crate({

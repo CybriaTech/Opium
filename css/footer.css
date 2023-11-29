@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
 
 footer {
+  position: fixed;
   z-index: 1;
   display: flex;
   align-items: center;

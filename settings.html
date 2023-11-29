@@ -51,6 +51,22 @@
 .play-settings:hover {
   transform: scale(1.05);
 }
+
+#panic-hotkey {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: rgba(56, 56, 56, 0.8);
+    color: white;
+}
+
+#panic-link {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: rgba(56, 56, 56, 0.8);
+    color: white;
+}
 </style>
     <style>
         #particles-js {
@@ -73,6 +89,15 @@
             <h3 class="title-settings">Tab Cloaking</h3>
             <button class="play-settings" onclick="schoology()">Open In Schoology</button>
             <button class="play-settings" onclick="ab()">Open In about:blank</button>
+        </div>
+        <br>
+        <div id="tab-cloaking">
+            <h3 class="title-settings">Panic</h3>
+            <label for="panic-hotkey">Hotkey</label><br>
+            <input id="panic-hotkey" type="text" placeholder="Custom Hotkey Here" required><br>
+            <br>
+            <label for="panic-link">Panic Link</label><br>
+            <input id="panic-link" type="text" placeholder="Enter Panic link" required><br>
         </div>
     </main>
     <script src="js/settings.js"></script>

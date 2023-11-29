@@ -81,7 +81,6 @@
 #particles-js {
 position: absolute;
 width: 100vw;
-height: 100%;
 background-color: transparent;
 z-index: -1;
 }
@@ -231,7 +230,7 @@ z-index: -1;
 <script>
 function setParticlesHeight() {
     var particlesDiv = document.getElementById('particles-js');
-    particlesDiv.style.height = window.innerHeight + 'px';
+    particlesDiv.style.height = window.innerHeight + 'vh';
 }
 
 particlesJS('particles-js', {

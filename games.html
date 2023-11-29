@@ -229,6 +229,11 @@ z-index: -1;
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+            function setParticlesHeight() {
+            var particlesDiv = document.getElementById('particles-js');
+            particlesDiv.style.height = window.innerHeight + 'px';
+        }
+    
    particlesJS('particles-js', {
      particles: {
        number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -246,6 +251,9 @@ z-index: -1;
      },
      retina_detect: true
    });
+
+        setParticlesHeight();
+        window.addEventListener('resize', setParticlesHeight);
 </script>
 <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
     new Crate({

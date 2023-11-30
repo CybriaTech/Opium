@@ -1,0 +1,21 @@
+{
+  "short_name": "Paper.io 2",
+  "name": "Paper.io 2",
+  "icons": [
+    {
+      "src": "/img/favicon/paperio2.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/favicon/paperio2.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#2d3331",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#2d3331"
+}

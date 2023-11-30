@@ -43,3 +43,30 @@ function schoology() {
 function ab() {
     openPopup("about:blank", "/images/settings/about-blank.png");
 }
+
+function panic() {
+  var hotkey = document.getElementById('panic-hotkey').value;
+  var link = document.getElementById('panic-link').value;
+
+  if (hotkey && link) {
+    localStorage.setItem('panicHotkey', hotkey);
+    localStorage.setItem('panicLink', link);
+
+    alert('Alright, Your Panic Link And Hotkey Has Been Saved!');
+  } else {
+    alert('Error 174, Both Link & Hotkey Required!');
+  }
+}
+
+function handleHotkey(event) {
+  var hotkey = localStorage.getItem('panicHotkey');
+  var link = localStorage.getItem('panicLink');
+
+  if (hotkey && link) {
+    if (event.key === hotkey) {
+      window.location.href = link;
+    }
+  }
+}
+
+document.addEventListener('keydown', handleHotkey);

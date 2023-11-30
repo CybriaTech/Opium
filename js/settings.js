@@ -49,6 +49,9 @@ function panic() {
   var link = document.getElementById('panic-link').value;
 
   if (hotkey && link) {
+    localStorage.removeItem('panicHotkey');
+    localStorage.removeItem('panicLink');
+
     localStorage.setItem('panicHotkey', hotkey);
     localStorage.setItem('panicLink', link);
 

@@ -1,0 +1,332 @@
+<html>
+<head>
+  <title>Asteroids | CybriaGames</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon/cybria-games.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/cybria-games-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/cybria-games-32x32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/img/favicon/cybria-games-64x64.png">
+<link rel="icon" type="image/png" sizes="128x128" href="/img/favicon/cybria-games-128x128.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTQ60TS6SP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NTQ60TS6SP');
+</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        canvas {
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var _w=window.innerWidth, _h=window.innerHeight, W = {w:_w, h:_h, w2:_w>>1, h2:_h>>1};
+    var canvas = document.createElement('canvas'), canvas2 = document.createElement('canvas'), canvas2_padding = 30;
+    canvas.width  = canvas2.width = W.w;
+    canvas.height = canvas2.height = W.h;
+    canvas2.width  += 2*canvas2_padding; // canvas для детектирования столкновений расширена на величину,
+    canvas2.height += 2*canvas2_padding; //   достаточную для полной отрисовки корабля
+
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d'), ctx2 = canvas2.getContext('2d');
+    ctx.strokeStyle = 'white';
+
+    var snd_shoot = new Audio('shoot.wav'),
+        snd_damage = new Audio('damage.wav'),
+        snd_die = new Audio('die.wav'),
+        snd_hit = new Audio('hit.wav'),
+        snd_impulse = new Audio('impulse.wav');
+
+    // геометрия объектов (последовательность вершин без повтора первой в конце)
+    var pathes = [
+        [[0, -1], [0.5, 0.3], [-0.5, 0.3]], // ship
+        [[0, -1], [0.5, 0.3], [-0.5, 0.3], [-0.2, 0.3], [0, 1], [0.2, 0.3], [-0.5, 0.3]], // ship + fire
+        [[-1, -1], [1, -1], [1, 1], [-1, 1]], // bullet
+        [[0, -0.7], [0.3, -1], [1, -0.3], [0.5, -0.1], [0.7, 0.5], [0.1, 0.9], [-0.7, 1], [-1, 0.7], [-0.8, -0.5], [-0.3, -1]],
+        [[-0.4, -1], [0.5, -1], [1, -0.8], [1, 0.1], [0.5, 1], [0.01, 1], [0, 0.2], [-0.2, 1], [-0.8, 0.2], [-0.5, 0], [-1, -0.1]],
+        [[-0.8, -1], [0.1, -1], [1, -0.4], [1, -0.2], [0.5, 0], [1, 0.2], [0.4, 1], [0, 0.6], [-0.5, 1], [-1, 0.2], [-1, -0.5], [-0.4, -0.5]]
+    ];
+
+    function R(m) {m=m||1; return Math.random()*m};
+    function d2r(d) {return d*Math.PI/180};
+    function r2d(r) {return r*180/Math.PI};
+    function sin(v) {return Math.sin(d2r(v))};
+    function cos(v) {return Math.cos(d2r(v))};
+
+    var objs = [], // objs[0] это всегда корабль
+        bullets_max = 8, bullet_speed = 5, godmode_max = 120, max_ship_speed = 3, stopped = true,
+        bullets_cnt, asteroids_cnt, asteroids_max, lives, score;
+
+    /*
+    Параметры:
+        t - тип объекта (0-корабль, 1-астероид, 2-пуля)
+        p - индекс списка вершин
+        x,y - координаты центральной точки объекта относительно центра мира
+        b - размер стороны ограничивающего объема
+        sx,sy - проекции скорости на оси
+        ss - коэффициент затухания (торможения) скоростей (>1 для замедления, <1 для ускорения)
+        a - начальный угол поворота (0 - вверх, 90 - вправо)
+        sa - скорость поворота (градусов за "такт")
+        ttl - время жизни объекта в "тактах"
+
+    Добавляются:
+        r - радиус описанной окружности
+        b2 - половина b
+    */
+    function obj_add(t, p, x, y, b, sx, sy, ss, a, sa, ttl) {
+        var r = parseInt(Math.sqrt(2)*(b>>1));
+        objs.push({t:t, p:p, x:x, y:y, b:b, b2:(b>>1), r:r, sx:sx, sy:sy, ss:ss, a:a, sa:sa, ttl:ttl})
+    }
+
+    function asteroid_add(x, y, b) {
+        b = ('undefined' == typeof b) ? parseInt(R(7)+1)*10 : b;
+        // если (x,y) не указано, то прижимаю место появления астероида к краю экрана
+        var _x = R(W.w) - W.w2,
+            _y = R(W.h) - W.h2,
+            _sign = (R()>0.5) ? 1 : -1,
+            p = parseInt(R(pathes.length-3)+3);
+        // 50/50 выравниваю то по горизонтали, то по вертикали
+        if (R() > 0.5) {_x = _sign*(W.w2+b)} else {_y = _sign*(W.h2+b)}
+
+        x = ('undefined' == typeof x) ? _x : x;
+        y = ('undefined' == typeof y) ? _y : y;
+        obj_add(1, p, x, y, b, -x/(R(W.w)+(W.w>>2)), -y/(R(W.h)+(W.h>>2)), 1, R(360), R(8)-4, -1);
+    }
+
+    function obj_draw(S, fill, padding) {
+        var c = ('undefined' == typeof fill) ? ctx : ctx2;
+        if (fill) {c.fillStyle = fill}
+        padding = padding||0;
+
+        c.save();
+            c.translate(W.w2+S.x+padding, W.h2+S.y+padding);
+            c.rotate(d2r(S.a));
+            c.scale(S.b2, S.b2);
+            c.beginPath();
+            pathes[S.p].forEach(function(p, j){
+                c[j?'lineTo':'moveTo'].apply(c, [p[0], p[1]])
+            });
+            c.closePath();
+        c.restore();
+
+        fill ? c.fill() : c.stroke();
+    }
+
+    function dist(x0, y0, x1, y1) {return Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 2))}
+
+    function init() {
+        objs = [], bullets_cnt = 0, asteroids_cnt = 0, asteroids_max = 6, lives = 3, score = 0, godmode = godmode_max;
+        obj_add(0, 0, 0, 0, 26, 0, 0, 1.01, 0, 0, -1);
+    }
+
+    function draw_msg(txt) {
+        ctx.save();
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, W.w, W.h);
+            ctx.fillStyle = 'white';
+            ctx.textAlign = ctx.textBaseline = 'center';
+            ctx.font = 'bold 16px monospace';
+            ctx.fillText(txt, W.w2, W.h2);
+        ctx.restore();
+    }
+
+    function test_collision(a, b) {
+        var collision = false;
+        ctx2.save();
+            ctx2.fillStyle = '#000'; ctx2.fillRect(0, 0, W.w+2*canvas2_padding, W.h+2*canvas2_padding);
+            ctx2.globalAlpha = 0.5;
+            obj_draw(a, '#F00', canvas2_padding);
+            obj_draw(b, '#0F0', canvas2_padding);
+
+            var x0 = Math.min(a.x-a.r, b.x-b.r),
+                y0 = Math.min(a.y-a.r, b.y-b.r),
+                x1 = Math.max(a.x+a.r, b.x+b.r),
+                y1 = Math.max(a.y+a.r, b.y+b.r);
+
+            var data = ctx2.getImageData(x0+W.w2+canvas2_padding, y0+W.h2+canvas2_padding, x1-x0+1, y1-y0+1).data;
+            for (var i = data.length-4; i >= 0; i -= 4) {
+                if (data[i] && data[i+1]) {
+                    collision = true;
+                    break;
+                }
+            }
+        ctx2.restore();
+
+        return collision;
+    }
+
+    function asteroid_break(A) {
+        // осколки
+        var asize = 10*parseInt(A.b/10 - (R(2)+1));
+        if (asize > 0) {
+            for (var r = parseInt(R(2)+1); r > 0; --r) {
+                asteroid_add(A.x, A.y, asize);
+            }
+        }
+        // мусор
+        for (var r = parseInt(R(2)+3); r > 0; --r) {
+            var a = R(360);
+            obj_add(3, 2, A.x, A.y, 2, sin(a), -cos(a), 1, 0, 0, 30);
+        }
+    }
+
+    document.onmousemove = function (e) {
+        var v = {x:(e.pageX-W.w2-objs[0].x), y:(e.pageY-W.h2-objs[0].y)};
+        objs[0].a = r2d(Math.acos(-v.y/(Math.sqrt(v.x*v.x+v.y*v.y))));
+        if (e.pageX-W.w2<objs[0].x) {
+            objs[0].a = (360-objs[0].a);
+        }
+    };
+    document.onkeydown = function(e) {
+        if (e.keyCode == 13/*enter*/ && stopped) {
+            stopped = false;
+            init();
+        }
+        else if ((e.keyCode == 38/*up*/) || (e.keyCode == 87/*W*/)) {
+            if (Math.sqrt(Math.pow(objs[0].sx, 2)+Math.pow(objs[0].sy, 2)) > max_ship_speed) return;
+            snd_impulse.pause() || snd_impulse.play();
+            objs[0].p = 1; // для "мигания" двигателем при ускорении меняю геометрию корабля на вариант с пламенем
+            objs[0].sx += 2*sin(objs[0].a);
+            objs[0].sy -= 2*cos(objs[0].a);
+        }
+    };
+    document.onclick = function(e) {
+        if (stopped || (bullets_cnt >= bullets_max)) return;
+        snd_shoot.pause() || snd_shoot.play();
+        var S = objs[0];
+        // пуля вылетает из "носа" корабля, а не из его центра
+        var x = S.x + S.b2*sin(S.a),
+            y = S.y - S.b2*cos(S.a);
+        obj_add(2, 2, x, y, 4, bullet_speed*sin(S.a), -bullet_speed*cos(S.a), 1, 0, 10, 60);
+    };
+
+    init();
+    draw_msg('Asteroids! Press ENTER to begin');
+
+    function render() {
+        if (stopped) return;
+
+        ctx.fillStyle = 'black'; ctx.fillRect(0, 0, W.w, W.h);
+
+        while (asteroids_cnt < asteroids_max) {asteroid_add(); ++asteroids_cnt}
+
+        var score_multiplier = Math.max(1, parseInt(asteroids_cnt/5));
+
+        var to_delete = [];
+        for (var i = objs.length-1; i >= 0; --i) {
+            if (to_delete.indexOf(i) > -1) continue;
+            var S = objs[i];
+
+            // обработка короткоживущих объектов
+            if ((S.ttl > -1) && (!--S.ttl)) {
+                to_delete.push(i);
+                continue;
+            }
+
+            S.a = (S.a + S.sa) % 360;
+            S.x += (S.sx /= S.ss);
+            S.y += (S.sy /= S.ss);
+
+            // "заворачивание" за краем экрана
+            [{x:'x', W:W.w}, {x:'y', W:W.h}].forEach(function(_) {
+                var limit = (_.W>>1)+S.r, diff = _.W+2*S.r;
+                if      (S[_.x] < -limit) {S[_.x] += diff}
+                else if (S[_.x] >  limit) {S[_.x] -= diff}
+            });
+
+            // коллизии
+            var may_draw = true;
+            for (var j = i-1; j >= 0; --j) {
+                if (to_delete.indexOf(j) > -1) continue;
+                var Sj = objs[j];
+
+                // маска столкновения (что с чем): "[012][12]"
+                var ab = Math.min(S.t, Sj.t)+''+Math.max(S.t, Sj.t);
+                // не проверяю столкновения: корабль+пуля, астероид+астероид, пуля+пуля, все 4 варианта с участием частиц взрыва
+                var ignore_ab = ['02', '11', '22', '03', '13', '23', '33'];
+                // проверка на ignore_ab + пересечение оболочек + точное попиксельное пересечение
+                if ((ignore_ab.indexOf(ab) == -1) && (dist(S.x, S.y, Sj.x, Sj.y) < S.r+Sj.r) && test_collision(S, Sj)) {
+                    if (('01' == ab) && !godmode) { // столкновение корабля с астероидом
+                        if (--lives > 0) {
+                            // при уроне без гибели, включаю временный godmode и удаляю астероид целиком
+                            snd_damage.play();
+                            godmode = godmode_max;
+                            to_delete.push((1 == S.t) ? i : j);
+                            asteroid_break((1 == S.t) ? S : Sj);
+                        }
+                        else {
+                            snd_die.play();
+                            stopped = true;
+                            draw_msg('GAME OVER! Score: '+score+'. Press ENTER to retry');
+                        }
+                        may_draw = false;
+                        i = -1; // завершаем обход объектов
+                        break;
+                    }
+                    else if ('12' == ab) { // пуля попала в астероид
+                        snd_hit.pause() || snd_hit.play();
+                        to_delete.push(i, j);
+                        score += score_multiplier;
+                        asteroids_max = parseInt(score/20) + 6;
+                        // создание обломков
+                        var A = (1 == S.t) ? S : Sj;
+                        asteroid_break(A);
+
+                        may_draw = false;
+                        break;
+                    }
+                }
+            }
+
+            // опциональная отрисовка + мигание корабля в godmode каждые 6 тиков
+            if (may_draw && (i || !godmode || (parseInt(--godmode / 6)%2))) {
+                obj_draw(S);
+            }
+        }
+
+        if (to_delete.length) {
+            to_delete.sort(function(a, b){return b-a}).forEach(function(i) {
+                objs.splice(i, 1);
+            });
+        }
+
+        asteroids_cnt = bullets_cnt = 0;
+        objs.forEach(function(S) {
+            if (1==S.t) ++asteroids_cnt; else if (2==S.t) ++bullets_cnt
+        });
+
+        objs[0].p = 0; 
+
+        if (!stopped) {
+            ctx.font = 'bold 12px monospace';
+            ctx.fillStyle = 'white';
+            ctx.fillText(Array(Math.max(lives+1, 0)).join('A '), 5, 12);
+            ctx.fillText('Score: '+score+' * '+score_multiplier+' '+Array(Math.max(bullets_max-bullets_cnt+1, 1)).join('|'), 50, 12);
+        }
+    }
+
+    (function() {
+        var lastTime = 0;
+        if (!window.requestAnimationFrame) window.requestAnimationFrame = function(callback) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() {callback(currTime + timeToCall)}, timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+    })();
+
+    (function renderloop() {
+        render();
+        requestAnimationFrame(renderloop);
+    })();
+}, false);
+    </script>
+</head>
+<body>
+</body>
+</html>

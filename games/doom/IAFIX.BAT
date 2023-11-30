@@ -1,0 +1,3 @@
+@cls
+@call run
+exit

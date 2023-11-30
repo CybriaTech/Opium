@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "./static/css/main.52d6139e.chunk.css",
+    "main.js": "./static/js/main.d9c8622d.chunk.js",
+    "main.js.map": "./static/js/main.d9c8622d.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.596204d2.js",
+    "runtime-main.js.map": "./static/js/runtime-main.596204d2.js.map",
+    "static/js/2.c1118af7.chunk.js": "./static/js/2.c1118af7.chunk.js",
+    "static/js/2.c1118af7.chunk.js.map": "./static/js/2.c1118af7.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.52d6139e.chunk.css.map": "./static/css/main.52d6139e.chunk.css.map",
+    "static/js/2.c1118af7.chunk.js.LICENSE.txt": "./static/js/2.c1118af7.chunk.js.LICENSE.txt",
+    "static/media/doom1-1024.30f709fd.png": "./static/media/doom1-1024.30f709fd.png",
+    "static/media/footer-large.5e4ed2b6.png": "./static/media/footer-large.5e4ed2b6.png",
+    "static/media/freedoom1-1024.0783d370.png": "./static/media/freedoom1-1024.0783d370.png",
+    "static/media/freedoom2-1024.ebe0a7fd.png": "./static/media/freedoom2-1024.ebe0a7fd.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.596204d2.js",
+    "static/js/2.c1118af7.chunk.js",
+    "static/css/main.52d6139e.chunk.css",
+    "static/js/main.d9c8622d.chunk.js"
+  ]
+}

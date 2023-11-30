@@ -69,4 +69,8 @@ function handleHotkey(event) {
   }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  handleHotkey({ key: '' });
+});
+
 document.addEventListener('keydown', handleHotkey);

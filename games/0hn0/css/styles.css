@@ -1,0 +1,195 @@
+body {
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #444;
+  padding: 10px 20px; /* Reduced padding for a more compact header */
+}
+
+h1, h2 {
+  margin: 0;
+  color: #fff;
+}
+
+#searchInput {
+  width: 200px; /* Slightly longer search bar */
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px; /* Slightly less rounded corners */
+  background-color: #fff;
+  margin-left: 20px;
+}
+
+.title {
+  font-size: 1.1em; /* Increased title size */
+  color: #fff;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center; /* Align nav items vertically in the center */
+  margin-left: auto; /* Move nav items to the right side of the header */
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px; /* Larger font size for hyperlinks */
+  margin-left: 20px;
+}
+
+#searchInput {
+  width: 200px; /* Slightly longer search bar */
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px; /* Slightly less rounded corners */
+  background-color: #fff;
+  margin-left: 20px;
+}
+
+.title {
+  font-size: 1.1em; /* Increased title size */
+  color: #fff;
+  text-decoration: none;
+}
+
+#gamesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* This will center the games */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.game {
+  width: 200px;
+  margin: 10px;
+  padding: 5px; /* Reduce padding */
+  border: 0.5px solid #ddd; /* Make the border smaller */
+  border-radius: 10px; /* Make the border radius smaller */
+  text-align: center;
+  background-color: #383838;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.game-title {
+  font-size: 20px;
+}
+
+.game:hover {
+  background-color: #fff;
+}
+
+.game img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px; /* Make the border radius smaller */
+  margin: auto;
+  display: block;
+}
+
+.game a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.game:hover a {
+  color: #333;
+}
+
+nav a:hover {
+  color: #0ec2e1;
+}
+
+.categoryContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.category {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.category:hover {
+  background-color: #383838;
+}
+
+.dark-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align links and GitHub logo to the left */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Push the links to the left */
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.github-logo {
+  font-size: 24px;
+  margin-left: 20px; /* Add some spacing between links and GitHub logo */
+}
+
+.github-logo a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Optional: If you're using Font Awesome for GitHub logo */
+.github-logo i {
+  color: #fff;
+}
+
+/* Optional: Add hover styles for links */
+.footer-links a:hover,
+.github-logo a:hover {
+  color: #0ec2e1;
+}
+
+.category a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.category:hover a {
+  color: #0ec2e1;
+}

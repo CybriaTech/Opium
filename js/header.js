@@ -9,6 +9,7 @@ document.write(`
       <a href="/proxy.html">Proxy</a> 
       <a href="/bookmarklets.html">Bookmarklets</a> 
       <a href="/emulators">Emulators</a> 
+      <a href="/docs"><i class="fas fa-file"></i></a>
       <a href="/settings.html"><i class="fas fa-cog"></i></a>
     </nav>
   </header>

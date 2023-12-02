@@ -44,6 +44,14 @@ body {
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 .play-btn:hover {
   transform: scale(1.05);
 }

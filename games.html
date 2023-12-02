@@ -41,28 +41,8 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
-  grid-gap: 10px;
-  box-sizing: border-box;
 }
-
-@media only screen and (max-width: 768px) {
-  #games {
-    margin-top: 80%;
-  }
-}
-
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  #games {
-    margin-top: 90%;
-  }
-}
-
-@media only screen and (min-width: 1025px) {
-  #games {
-    margin-top: 100%;
-  }
-}
-
+    
 .game {
   width: 200px;
   margin: 10px;
@@ -387,6 +367,15 @@
 </div><br>
 </div>
     </main>
+    <script>
+var elem = document.querySelector('#games');
+var msnry = new Masonry( elem, {
+  itemSelector: '.game',
+  columnWidth: 200
+});
+</script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>

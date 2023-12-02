@@ -14,7 +14,7 @@
     <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
     <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
-    <title>Opium</title>
+    <title>0hn0 | Opium</title>
     <link rel="stylesheet" href="/css/index.css">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
@@ -74,46 +74,26 @@
         margin: 0;
     }
 
-    .fullscreen,
-    .volume {
+    .fullscreen {
         background: transparent;
         font-size: 20px;
         color: #fff;
         cursor: pointer;
         border: none;
     }
-
-    .volume {
-        margin-left: 50%;
-        display: flex;
-        align-items: center;
-    }
-
-    .volume input {
-        margin-left: 15px;
-        width: 80px;
-    }
-
-    .volume i {
-        margin-left: 25px;
-    }
   </style>
 </head>
 <body style="overflow: hidden;">
     <script src="/js/header.js"></script>
-    <main>
+  <main>
       <div class="game-area">
-        <iframe src="game.html" class="game-frame"></iframe>
-        <div class="controls">
-          <p class="game-title">0h n0</p>
-          <div class="volume">
-              <i class="fas fa-volume-up"></i>
-              <input type="range" min="0" max="1" step="0.1" value="1" onchange="changeVolume(this.value)">
+          <iframe src="game.html" class="game-frame" allowfullscreen="true" id="gameIframe"></iframe>
+          <div class="controls">
+              <p class="game-title">0h n0</p>
+              <button class="fullscreen" onclick="toggleFullscreen()"><i class="fas fa-expand"></i></button>
           </div>
-          <button class="fullscreen" onclick="fullscreen()"><i class="fas fa-expand"></i></button>
-        </div>
       </div>
-    </main>
+  </main>
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
@@ -135,19 +115,16 @@
      retina_detect: true
    });
 
-  function changeVolume(volume) {
-      var iframe = document.querySelector('.game-frame');
-      iframe.contentWindow.postMessage({
-          event: 'volumeChange',
-          value: volume
-      }, '*');
-      var volumeIcon = document.querySelector('.volume i');
-      if (volume == 0) {
-          volumeIcon.classList.remove('fas', 'fa-volume-up');
-          volumeIcon.classList.add('fas', 'fa-volume-mute');
-      } else {
-          volumeIcon.classList.remove('fas', 'fa-volume-mute');
-          volumeIcon.classList.add('fas', 'fa-volume-up');
+  function toggleFullscreen() {
+      var iframe = document.getElementById('gameIframe');
+      if (iframe.requestFullscreen) {
+          iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+          iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) {
+          iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+          iframe.msRequestFullscreen();
       }
   }
 </script>

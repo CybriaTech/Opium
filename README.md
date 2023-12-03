@@ -10,6 +10,12 @@
 
 ### Testing Site: https://opium-tst.neocities.org
 
+## Active Domains
+
+https://opium-games.pages.dev
+
+https://opium-games.mybooty165.repl.co/
+
 # Socials
 
 <a href="https://discord.gg/e2UXEwjcsg"><img height="30px" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"><img></a>

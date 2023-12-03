@@ -40,4 +40,4 @@ https://opium-games.mybooty165.repl.co/
 
 ## Contributors
 
-<img src="https://contrib.rocks/image?repo=CybriaTech/CybriaGames">
+<img src="https://contrib.rocks/image?repo=CybriaTech/Opium">

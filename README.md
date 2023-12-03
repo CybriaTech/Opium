@@ -37,6 +37,9 @@ https://opium-games.mybooty165.repl.co/
 [![Run on Google Cloud](https://camo.githubusercontent.com/4fab2bbebcae1fe689b7d3eba3b89e309169215055849590724fd6e13333558c/68747470733a2f2f62696e6261736862616e616e612e6769746875622e696f2f6465706c6f792d627574746f6e732f627574746f6e732f72656d6164652f676f6f676c65636c6f75642e737667)](https://deploy.cloud.run/?git_repo=https://github.com/CybriaTech/Opium)
 [![Deploy to Koyeb](https://binbashbanana.github.io/deploy-buttons/buttons/remade/koyeb.svg)](https://app.koyeb.com/apps/deploy?type=git&repository=github.com/CybriaTech/Opium&branch=main&name=opium&run_command=npm%start)
 
+## Repo Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/b581d6340b1dfa337152f25d118d94c7ec22d477.svg "Repobeats analytics image")
 
 ## Contributors
 

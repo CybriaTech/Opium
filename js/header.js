@@ -9,7 +9,7 @@ document.write(`
       <a href="/proxy.html">Proxy</a> 
       <a href="/bookmarklets.html">Bookmarklets</a> 
       <a href="/emulators">Emulators</a> 
-      <a href="https://github.com/CybriaTech/Opium"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/Imperium-Inc/Opium"><i class="fab fa-github"></i></a>
       <a href="/settings.html"><i class="fas fa-cog"></i></a>
     </nav>
   </header>

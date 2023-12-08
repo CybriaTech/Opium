@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Sprinter Unblocked</title>
+    <link rel="shortcut icon" href="TemplateData/img/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/css/style.css">
+    <script src="Build/UnityLoader.js"></script>
+	<script>
+
+		function CheckCompatibility(gameInstance, onsuccess, onerror)
+		{
+			if (!UnityLoader.SystemInfo.hasWebGL) {
+				document.getElementById("errorBrowserBlock").style.display = "inherit";
+				onerror();
+			} else if (UnityLoader.SystemInfo.mobile) {
+				document.getElementById("warningMobileBlock").style.display = "inherit";
+				onsuccess();
+			} else if (["Firefox", "Chrome", "Safari"].indexOf(UnityLoader.SystemInfo.browser) == -1) {
+				document.getElementById("warningBrowserBlock").style.display = "inherit";
+				onsuccess();
+			} else {
+				onsuccess();
+			}
+		}
+
+		function RuntimeInitialized(){
+		}
+
+		function UnityProgress(gameInstance, progress) {
+			if (!gameInstance.Module)
+			return;
+			document.getElementById("loadingBlock").style.display = "inherit";
+			document.getElementById("fullBar").style.width = (100 * progress) + "%";
+			document.getElementById("emptyBar").style.width = (100 * (1 - progress)) + "%";
+			if (progress == 1)
+			{
+				setTimeout(function(){ document.getElementById("loadingBlock").style.display = "none"; }, 3000);
+			}
+		}
+
+		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json", {
+			onProgress: UnityProgress,
+			compatibilityCheck:CheckCompatibility,
+			Module: {
+				//TOTAL_MEMORY: 268435456,
+				onRuntimeInitialized:RuntimeInitialized,
+			},
+		});
+    </script>
+  </head>
+  <body>
+
+    <div class="keepRatio">
+
+		<div class="webgl-content">
+
+			<div id="gameContainer"></div>
+		</div>
+
+
+		<div id="loadingBlock">
+			<img class="logo" src="TemplateData/img/Logo.png"></img>
+			<span class="subtitle">   <br>
+
+			</span>
+
+			<div id="progressBar">
+				<div> </div>
+				<div class="centered">
+					<div id="emptyBar"></div>
+					<div id="fullBar"></div>
+				</div>
+			</div>
+
+			<div id="warningBrowserBlock" style="display:none;">
+				<div class="warningBrowserText">
+
+				</div>
+				<div class="browserIcons">
+				 <a href="https://www.g2k.co" target="_blank"><div class="g2k">
+					 g2k.co
+				</div>
+			</div>
+			<div id="warningMobileBlock" style="display:none;">
+				<div class="warningBrowserText">
+
+  </div>
+			</div>
+
+		</div>
+
+		<div id="errorBrowserBlock" style="display:none;">
+			<img class="logo" src="TemplateData/img/Logo.png"></img>
+			<span class="subtitle">   <br>
+ 			</span>
+
+			<div id="errorContent">
+				<div id="errorBrowserText">
+
+ </div>
+				<div class="browserIcons">
+
+					</div>
+			</div>
+		</div>
+
+	</div>
+	<script src="js/analytics_ubg_v1_4.js"></script>
+  <script src="js/ubg235_client_v1_1.js"></script>
+
+  </body>
+</html>

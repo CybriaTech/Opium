@@ -107,8 +107,9 @@ main {
 #search {
   position: relative;
   text-align: center;
-  align-items: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-bar {
@@ -116,7 +117,7 @@ main {
   font-size: 25px;
   width: 450px;
   height: 45px;
-  border-radius: 6px;
+  border-radius: 6px 0 0 6px;
   background-color: rgba(56, 56, 56, 0.8);
   border: none;
   padding-right: 45px;
@@ -127,13 +128,13 @@ main {
   width: 45px;
   height: 45px;
   background: rgba(56, 56, 56, 0.8);
-  border-radius: 6px;
+  border-radius: 0 6px 6px 0;
   border: none;
   font-size: 20px;
   color: #ffffff;
   transition: background-color 0.2s ease;
   cursor: pointer;
-  margin-right: 10px;
+  margin-left: -1px;
   z-index: 2;
 }
 

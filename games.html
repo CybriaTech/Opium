@@ -152,21 +152,36 @@ function search() {
     var searchTerm = document.querySelector('.search-bar').value.toLowerCase();
     var gameTitles = document.querySelectorAll('.game-title');
 
-    gameTitles.forEach(function(title) {
-        var gameTitleText = title.innerText.toLowerCase();
-
-        if (gameTitleText.includes(searchTerm)) {
+    if (searchTerm === '') {
+        gameTitles.forEach(function (title) {
             title.closest('.game').style.display = 'block';
-        } else {
-            title.closest('.game').style.display = 'none';
-        }
-    });
+        });
+    } else {
+        gameTitles.forEach(function (title) {
+            var gameTitleText = title.innerText.toLowerCase();
+
+            if (gameTitleText.includes(searchTerm)) {
+                title.closest('.game').style.display = 'block';
+            } else {
+                title.closest('.game').style.display = 'none';
+            }
+        });
+    }
 }
 
-document.querySelector('.search-bar').addEventListener('keyup', function(event) {
+document.querySelector('.search-bar').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
         search();
     }
+});
+
+document.querySelector('.search-enter').addEventListener('click', function () {
+    search();
+});
+
+document.querySelector('.search-bar').addEventListener('focus', function () {
+    this.value = '';
+    search();
 });
 </script>
 </head>

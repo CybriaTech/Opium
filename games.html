@@ -14,6 +14,61 @@
     <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
     <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
+    <!-- Trending -->
+        <script>
+        function handleGameClick(gameElement) {
+            let clickCount = parseInt(localStorage.getItem(gameElement.id)) || 0;
+
+            clickCount++;
+
+            localStorage.setItem(gameElement.id, clickCount);
+
+            if (isMostClickedGame(gameElement.id)) {
+                addFireIcon(gameElement);
+            } else {
+                removeFireIcon(gameElement);
+            }
+        }
+
+        function isMostClickedGame(clickedGameId) {
+            let games = document.querySelectorAll('.game');
+
+            for (let game of games) {
+                let gameId = game.id;
+
+                if (gameId !== clickedGameId) {
+                    let clickCount = parseInt(localStorage.getItem(gameId)) || 0;
+                    let clickedGameCount = parseInt(localStorage.getItem(clickedGameId)) || 0;
+
+                    if (clickCount >= clickedGameCount) {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        function addFireIcon(gameElement) {
+            let fireIcon = document.createElement('i');
+            fireIcon.classList.add('fas', 'fa-fire', 'fire-icon');
+            gameElement.appendChild(fireIcon);
+        }
+
+        function removeFireIcon(gameElement) {
+            let fireIcon = gameElement.querySelector('.fire-icon');
+            if (fireIcon) {
+                fireIcon.remove();
+            }
+        }
+
+        let games = document.querySelectorAll('.game');
+        games.forEach(game => {
+            game.addEventListener('click', function () {
+                handleGameClick(this);
+            });
+        });
+        </script>
     <title>Games | Opium</title>
       <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
@@ -103,6 +158,18 @@ main {
 .game:hover a {
   color: #333;
 }
+
+.fire-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #292929;
+  background-color: #ffa200;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 5px;
+  display: none;
+ }
     </style>
 </head>
 <body>

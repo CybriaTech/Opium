@@ -147,10 +147,9 @@ main {
   background-color: red;
 }
     </style>
-        <script>
+<script>
 function search() {
     var searchTerm = document.querySelector('.search-bar').value.toLowerCase();
-
     var gameTitles = document.querySelectorAll('.game-title');
 
     gameTitles.forEach(function(title) {
@@ -163,6 +162,12 @@ function search() {
         }
     });
 }
+
+document.querySelector('.search-bar').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        search();
+    }
+});
 </script>
 </head>
 <body>

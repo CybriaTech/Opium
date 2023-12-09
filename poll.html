@@ -65,7 +65,8 @@ main {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.poll-btn {
+.poll-btn-yes,
+.poll-btn-no {
   gap: 10px;
   font-size: 25px;
   justify-content: center;
@@ -74,6 +75,15 @@ main {
   width: 45px;
   height: 45px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.poll-btn-yes:hover {
+  background-color: lime;
+}
+
+.poll-btn-no:hover {
+  background-color: red;
 }
 </style>
 </head>
@@ -84,9 +94,8 @@ main {
         <div id="poll-container">
             <br>
           <p class="poll-title">Should Opium Have A Like & Dislike Feature On The Games?</p>
-              <br>
-          <button onclick="poll('yes')" class="poll-btn"><i class="fas fa-thumbs-up"></i></button>
-          <button onclick="poll('no')" class="poll-btn"><i class="fas fa-thumbs-down"></i></button>
+          <button onclick="poll('yes')" class="poll-btn-yes"><i class="fas fa-thumbs-up"></i></button>
+          <button onclick="poll('no')" class="poll-btn-no"><i class="fas fa-thumbs-down"></i></button>
     </main>
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

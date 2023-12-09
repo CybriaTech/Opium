@@ -142,6 +142,31 @@ main {
   background-color: red;
 }
     </style>
+    <script>
+const searchInput = document.getElementById('search-bar');
+const gameContainers = document.querySelectorAll('.game');
+const searchForm = document.getElementById('search');
+
+searchInput.addEventListener('input', search);
+
+searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    search();
+});
+
+function search() {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    gameContainers.forEach(container => {
+        const title = container.querySelector('.game-title').textContent.toLowerCase();
+        if (title.includes(searchTerm)) {
+            container.style.display = 'block';
+        } else {
+            container.style.display = 'none';
+        }
+    });
+}
+    </script>
 </head>
 <body>
     <script src="/js/header.js"></script>

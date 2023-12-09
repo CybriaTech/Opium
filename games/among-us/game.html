@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        #loadingBar {
+            width: 100%;
+            height: 5px;
+            background-color: #ccc;
+            position: relative;
+            display: none;
+        }
+
+        #progressBar {
+            width: 0;
+            height: 100%;
+            background-color: #4CAF50;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loadingBar">
+    <div id="progressBar"></div>
+</div>
+
+<div id="fileContent">
+</div>
+
+<script>
+    $(document).ready(function () {
+        var rawFileUrl = "https://raw.githubusercontent.com/CybriaTech/LFS-Assets/main/game.html";
+
+        $('#loadingBar').show();
+
+        $.ajax({
+            url: rawFileUrl,
+            xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+                xhr.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = (evt.loaded / evt.total) * 100;
+                        $('#progressBar').css('width', percentComplete + '%');
+                    }
+                }, false);
+                return xhr;
+            },
+            success: function (data) {
+                $('#loadingBar').hide();
+                $("#fileContent").html(data);
+            },
+            error: function () {
+                $('#loadingBar').hide();
+                $("#fileContent").html("Failed to load file. Check the URL or try again later.");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

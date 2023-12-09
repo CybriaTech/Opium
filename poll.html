@@ -128,6 +128,9 @@ main {
    });
 </script>
 <script>
+    var yesClicked = false;
+    var noClicked = false;
+
     var yesCount = parseInt(localStorage.getItem('yesCount')) || 0;
     var noCount = parseInt(localStorage.getItem('noCount')) || 0;
 
@@ -140,9 +143,13 @@ main {
 
         if (yesCount > 0) {
             yesButton.style.backgroundColor = 'lime';
+            yesButton.disabled = true;
+            yesClicked = true;
         }
         if (noCount > 0) {
             noButton.style.backgroundColor = 'red';
+            noButton.disabled = true;
+            noClicked = true;
         }
     };
 
@@ -153,14 +160,22 @@ main {
         var yesCountElement = document.getElementById('yesCount');
         var noCountElement = document.getElementById('noCount');
 
-        if (choice === 'yes') {
+        if (choice === 'yes' && !yesClicked) {
             yesCount++;
             yesButton.style.backgroundColor = 'lime';
             noButton.style.backgroundColor = '';
-        } else if (choice === 'no') {
+            yesButton.disabled = true;
+            noButton.disabled = true;
+            yesClicked = true;
+            noClicked = false;
+        } else if (choice === 'no' && !noClicked) {
             noCount++;
             noButton.style.backgroundColor = 'red';
             yesButton.style.backgroundColor = '';
+            noButton.disabled = true;
+            yesButton.disabled = true;
+            noClicked = true;
+            yesClicked = false;
         }
 
         yesCountElement.innerText = 'Yes: ' + yesCount;

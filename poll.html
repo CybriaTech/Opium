@@ -67,7 +67,6 @@ main {
 
 .poll-btn-yes,
 .poll-btn-no {
-  gap: 20px;
   font-size: 25px;
   justify-content: center;
   border: none;
@@ -87,6 +86,12 @@ main {
   color: #ffffff;
   background-color: red;
 }
+
+.poll-count {
+  color: #ffffff;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
 </style>
 </head>
 <body>
@@ -96,8 +101,10 @@ main {
         <div id="poll-container">
             <br>
           <p class="poll-title">Should Opium Have A Like & Dislike Feature On The Games?</p>
-          <button onclick="poll('yes')" class="poll-btn-yes"><i class="fas fa-thumbs-up"></i></button>
-          <button onclick="poll('no')" class="poll-btn-no"><i class="fas fa-thumbs-down"></i></button>
+          <button onclick="poll('yes')" class="poll-btn-yes" id="yesButton"><i class="fas fa-thumbs-up"></i></button>
+          <button onclick="poll('no')" class="poll-btn-no" id="noButton"><i class="fas fa-thumbs-down"></i></button>
+            <p class="poll-count" id="yesCount">Yes: 0</p>
+            <p class="poll-count" id="noCount">No: 0</p>
     </main>
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -119,6 +126,32 @@ main {
      },
      retina_detect: true
    });
+
+        <script>
+        function poll(choice) {
+            var yesButton = document.getElementById('yesButton');
+            var noButton = document.getElementById('noButton');
+
+            var yesCountElement = document.getElementById('yesCount');
+            var noCountElement = document.getElementById('noCount');
+
+            var yesCount = parseInt(yesCountElement.innerText.split(":")[1]);
+            var noCount = parseInt(noCountElement.innerText.split(":")[1]);
+
+            if (choice === 'yes') {
+                yesCount++;
+                yesButton.style.backgroundColor = 'lime';
+                noButton.style.backgroundColor = '';
+            } else if (choice === 'no') {
+                noCount++;
+                noButton.style.backgroundColor = 'red';
+                yesButton.style.backgroundColor = '';
+            }
+
+            yesCountElement.innerText = 'Yes: ' + yesCount;
+            noCountElement.innerText = 'No: ' + noCount;
+        }
+    </script>
 </script>
 <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
     new Crate({

@@ -127,31 +127,49 @@ main {
      retina_detect: true
    });
 </script>
-       <script>
-        function poll(choice) {
-            var yesButton = document.getElementById('yesButton');
-            var noButton = document.getElementById('noButton');
+<script>
+    var yesCount = parseInt(localStorage.getItem('yesCount')) || 0;
+    var noCount = parseInt(localStorage.getItem('noCount')) || 0;
 
-            var yesCountElement = document.getElementById('yesCount');
-            var noCountElement = document.getElementById('noCount');
+    window.onload = function () {
+        document.getElementById('yesCount').innerText = 'Yes: ' + yesCount;
+        document.getElementById('noCount').innerText = 'No: ' + noCount;
 
-            var yesCount = parseInt(yesCountElement.innerText.split(":")[1]);
-            var noCount = parseInt(noCountElement.innerText.split(":")[1]);
+        var yesButton = document.getElementById('yesButton');
+        var noButton = document.getElementById('noButton');
 
-            if (choice === 'yes') {
-                yesCount++;
-                yesButton.style.backgroundColor = 'lime';
-                noButton.style.backgroundColor = '';
-            } else if (choice === 'no') {
-                noCount++;
-                noButton.style.backgroundColor = 'red';
-                yesButton.style.backgroundColor = '';
-            }
-
-            yesCountElement.innerText = 'Yes: ' + yesCount;
-            noCountElement.innerText = 'No: ' + noCount;
+        if (yesCount > 0) {
+            yesButton.style.backgroundColor = 'lime';
         }
-    </script>
+        if (noCount > 0) {
+            noButton.style.backgroundColor = 'red';
+        }
+    };
+
+    function poll(choice) {
+        var yesButton = document.getElementById('yesButton');
+        var noButton = document.getElementById('noButton');
+
+        var yesCountElement = document.getElementById('yesCount');
+        var noCountElement = document.getElementById('noCount');
+
+        if (choice === 'yes') {
+            yesCount++;
+            yesButton.style.backgroundColor = 'lime';
+            noButton.style.backgroundColor = '';
+        } else if (choice === 'no') {
+            noCount++;
+            noButton.style.backgroundColor = 'red';
+            yesButton.style.backgroundColor = '';
+        }
+
+        yesCountElement.innerText = 'Yes: ' + yesCount;
+        noCountElement.innerText = 'No: ' + noCount;
+
+        localStorage.setItem('yesCount', yesCount);
+        localStorage.setItem('noCount', noCount);
+    }
+</script>
 <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
     new Crate({
         server: '1154632402942050394', // CybriaTech

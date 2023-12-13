@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="/css/index.css">
     <style>
 main {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   z-index: 1;
@@ -61,6 +61,11 @@ main {
 
 .play-settings:hover {
   transform: scale(1.05);
+}
+
+#settings-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 #tab-cloaking {
@@ -116,6 +121,7 @@ main {
     <br>
         <h1 class="title-index">Settings</h1>
         <br>
+        <div id="settings-container">
         <div id="tab-cloaking">
             <h3 class="title-settings">Tab Cloaking</h3>
             <button class="play-settings" onclick="schoology()">Open In Schoology</button>
@@ -129,6 +135,7 @@ main {
                 <p class="hex">#ffffff</p>
             </div>
             <br>
+        </div>
         </div>
     </main>
     <script src="js/settings.js"></script>

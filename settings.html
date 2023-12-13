@@ -67,9 +67,35 @@ main {
     background-color: #3c3c3c;
     border-radius: 6px;
     max-wdith: 250px;
-    max-height: 500px;
+    max-height: 1000px;
     text-align: center;
     align-items: center;
+}
+
+#theme {
+    background-color: #3c3c3c;
+    border-radius: 6px;
+    max-wdith: 250px;
+    max-height: 1000px;
+    text-align: center;
+    align-items: center;
+}
+
+.color-picker {
+    background-color: #434343;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#color-canvas {
+    cursor: crosshair;
+    background: #e4e4e4;
+}
+
+.hex {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 </style>
     <style>
@@ -93,6 +119,15 @@ main {
             <h3 class="title-settings">Tab Cloaking</h3>
             <button class="play-settings" onclick="schoology()">Open In Schoology</button>
             <button class="play-settings" onclick="ab()">Open In about:blank</button>
+            <br>
+        </div>
+        <div id="theme">
+            <h3 class="title-settings">Page Theme</h3>
+            <div class="color-picker">
+                <canvas id="color-canvas"></canvas>
+                <p class="hex">#ffffff</p>
+            </div>
+            <br>
         </div>
     </main>
     <script src="js/settings.js"></script>

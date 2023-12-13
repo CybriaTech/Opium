@@ -92,8 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     drawColorCanvas();
 
-    // Additional modification for two divs (color-canvas and canvas)
-    const canvasContainer = document.getElementById('canvas-container');
+    const canvasContainer = document.getElementById('color-canvas');
     const canvas = document.createElement('canvas');
     canvas.width = colorCanvas.width;
     canvas.height = colorCanvas.height;

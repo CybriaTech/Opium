@@ -103,3 +103,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     colorCanvas.style.display = 'none';
 });
+
+       function handleSliderState() {
+            var slider = document.querySelector('.slider-checkbox');
+            var widgetBotContainer = document.getElementById('widgetbot');
+
+            var isWidgetBotEnabled = localStorage.getItem('widgetBotEnabled') === 'true';
+
+            slider.checked = isWidgetBotEnabled;
+            widgetBotContainer.style.display = isWidgetBotEnabled ? 'block' : 'none';
+
+            slider.addEventListener('change', function () {
+                var isChecked = slider.checked;
+
+                localStorage.setItem('widgetBotEnabled', isChecked);
+
+                widgetBotContainer.style.display = isChecked ? 'block' : 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', handleSliderState);
+

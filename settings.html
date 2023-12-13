@@ -108,6 +108,63 @@ main {
     font-weight: bold;
     text-align: center;
 }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-round {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider-round:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider-round {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider-round:before {
+    transform: translateX(26px);
+}
+
+input {
+    padding: 15px;
+    width: 93%;
+    border-radius: 5px;
+    background: var(--background-secondary);
+    text-align: center;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+}
 </style>
     <style>
         #particles-js {
@@ -143,6 +200,10 @@ main {
             </div>
                     <div id="widgetbot">
             <h3 class="title-settings">WidgetBot</h3>
+         <label class="switch">
+         <input type="checkbox" class="slider-checkbox">
+         <span class="slider-round"></span>
+         </label>
             </div>
             <br>
         </div>

@@ -93,9 +93,14 @@ main {
 #color-canvas {
     cursor: crosshair;
     background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
-    height: 100%;
-    width: 100%;
+    height: 200px;
+    width: 250px;
     border-radius: 6px;
+}
+
+#color-canvas canvas {
+    width: 100%;
+    height: 100%;
 }
 
 .hex {
@@ -131,12 +136,13 @@ main {
         <div id="theme">
             <h3 class="title-settings">Page Theme</h3>
             <div class="color-picker">
-                <canvas id="color-canvas"></canvas>
+                <div id="color-canvas">
+                <canvas></canvas>
+                </div>
                 <p class="hex">#ffffff</p>
             </div>
                     <div id="widgetbot">
             <h3 class="title-settings">WidgetBot</h3>
-                        
             </div>
             <br>
         </div>

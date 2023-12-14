@@ -12,7 +12,7 @@
 
 ## Active Domains
 
-https://opium-games.pages.dev
+https://op1um.pages.dev
 
 https://opium-games.mybooty165.repl.co/
 

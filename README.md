@@ -6,7 +6,7 @@
 
 <h1 align="center">Opium Games</h1>
 
-🕹Opium Games is a free unblocked games service hosting over 100+ unblocked games, also includes many selectable proxies and emulators to use along with tab cloakers and history hiders! 🎮
+🕹Go past the boundaries with Opium! Our service hosts over 100+ unblocked games, includes many selectable proxies, emulators, and tab cloakers. And guess what? All of it is free with no fees at all for anything! 🎮
 
 ### Testing Site: https://opium-tst.neocities.org
 

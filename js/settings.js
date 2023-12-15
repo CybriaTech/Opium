@@ -36,10 +36,20 @@ function openPopup(title, iconUrl) {
     }
 }
 
+function toggleWidgetBot() {
+    const switchCheckbox = document.querySelector('.slider-checkbox');
+    const currentState = switchCheckbox.checked;
+    localStorage.setItem('widgetbotEnabled', currentState);
+    const widgetbotContainer = document.getElementById('widgetbot');
+    widgetbotContainer.style.display = currentState ? 'block' : 'none';
+}
+
 function schoology() {
     openPopup("Home | Schoology", "/images/settings/schoology.ico");
+    toggleWidgetBot();
 }
 
 function ab() {
     openPopup("about:blank", "/images/settings/about-blank.png");
+    toggleWidgetBot();
 }

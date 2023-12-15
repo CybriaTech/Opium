@@ -47,6 +47,8 @@ main {
         box-shadow: 0 0 5px #fff;
         position: relative;
         text-align: center;
+        display: flex;
+        align-items: center;
     }
 
     .game-frame {
@@ -55,22 +57,6 @@ main {
         width: 600px;
         height: 500px;
         object-cover: fill;
-    }
-
-    .controls {
-        box-shadow: 0 0 5px #fff;
-        position: absolute;
-        border: 1px solid #fff;
-        top: 95%;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: #616161;
-        border-radius: 0 0 5px 5px;
-        height: 40px;
     }
 
     .game-title {
@@ -82,22 +68,31 @@ main {
         margin: 0;
     }
 
-    .go-to-game {
-        background: transparent;
-        font-size: 20px;
-        color: #fff;
-        margin-left: 100%;
-        cursor: pointer;
-        border: none;
-    }
+.controls {
+    box-shadow: 0 0 5px #fff;
+    position: absolute;
+    border: 1px solid #fff;
+    top: 95%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #616161;
+    border-radius: 0 0 5px 5px;
+    height: 40px;
+}
 
-    .fullscreen {
-        background: transparent;
-        font-size: 20px;
-        color: #fff;
-        cursor: pointer;
-        border: none;
-    }
+.go-to-game,
+.fullscreen {
+    background: transparent;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    margin-left: 10px;
+}
   </style>
 </head>
 <body style="overflow: hidden;">

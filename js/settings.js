@@ -12,7 +12,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function toggleWidgetbot(isActive) {
     var widgetbotContainer = document.getElementById("widgetbot");
-    widgetbotContainer.style.display = isActive ? "block" : "none";
+
+    if (isActive) {
+        widgetbotContainer.style.display = "block";
+        appendWidgetbotScript();
+    } else {
+        widgetbotContainer.style.display = "none";
+        removeWidgetbotScript();
+    }
+}
+
+function appendWidgetbotScript() {
+    var existingScript = document.getElementById("widgetbot-script");
+
+    if (!existingScript) {
+        var script = document.createElement("script");
+        script.id = "widgetbot-script";
+        script.src = 'https://cdn.jsdelivr.net/npm/@widgetbot/crate@3';
+        script.async = true;
+        script.defer = true;
+
+        document.getElementById("widgetbot").appendChild(script);
+
+        script.innerHTML = `
+            new Crate({
+                server: '1154632402942050394', // CybriaTech
+                channel: '1154632891310030878' // #guest-general
+            });
+        `;
+    }
+}
+
+function removeWidgetbotScript() {
+    var existingScript = document.getElementById("widgetbot-script");
+
+    if (existingScript) {
+        existingScript.remove();
+    }
 }
 
 function openPopup(title, iconUrl) {

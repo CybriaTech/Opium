@@ -10,7 +10,7 @@ document.write(`
       <a href="/bookmarklets.html">Bookmarklets</a> 
       <a href="/emulators.html">Emulators</a> 
       <a href="https://github.com/CybriaTech/Opium"><i class="fab fa-github"></i></a>
-      <a href="/stats.html"><i class="fab fa-signal-bars"></i></a>
+      <a href="/hot.html"><i class="fab fa-fire"></i></a>
       <a href="/settings.html"><i class="fas fa-cog"></i></a>
     </nav>
   </header>

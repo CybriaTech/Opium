@@ -8,8 +8,9 @@ document.write(`
       <a href="/games.html">Games</a>
       <a href="/web-proxy.html">Proxy</a> 
       <a href="/bookmarklets.html">Bookmarklets</a> 
-      <a href="/emulators">Emulators</a> 
+      <a href="/emulators.html">Emulators</a> 
       <a href="https://github.com/CybriaTech/Opium"><i class="fab fa-github"></i></a>
+      <a href="/status.html"><i class="fab fa-signal-bars"></i></a>
       <a href="/settings.html"><i class="fas fa-cog"></i></a>
     </nav>
   </header>

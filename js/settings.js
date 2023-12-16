@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var isWidgetbotActive = localStorage.getItem("widgetbotActive");
+    var isWidgetbotActive = getCookie("widgetbotActive");
     var isWidgetbotOn = isWidgetbotActive === null ? true : JSON.parse(isWidgetbotActive);
     document.querySelector(".slider-checkbox").checked = isWidgetbotOn;
     toggleWidgetbot(isWidgetbotOn);
     document.querySelector(".slider-checkbox").addEventListener("change", function () {
         isWidgetbotOn = this.checked;
         toggleWidgetbot(isWidgetbotOn);
-        localStorage.setItem("widgetbotActive", JSON.stringify(isWidgetbotOn));
+        setCookie("widgetbotActive", JSON.stringify(isWidgetbotOn));
     });
 });
 
@@ -49,4 +49,71 @@ function removeWidgetbotScript() {
     if (existingScript) {
         existingScript.remove();
     }
+}
+
+function setCookie(name, value, days = 365) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function openPopup(title, iconUrl) {
+    let inFrame;
+    
+    try {
+        inFrame = window !== top;
+    } catch (e) {
+        inFrame = true;
+    }
+
+    if (!inFrame && !navigator.userAgent.includes("Firefox")) {
+        const popup = window.open("about:blank", "_blank");
+
+        if (!popup || popup.closed) {
+        } else {
+            const doc = popup.document;
+
+            doc.title = title;
+
+            const link = doc.createElement("link");
+            link.rel = "icon";
+            link.href = iconUrl;
+            doc.head.appendChild(link);
+
+            const iframe = doc.createElement("iframe");
+            const style = iframe.style;
+            iframe.src = location.href;
+            style.position = "fixed";
+            style.top = style.bottom = style.left = style.right = 0;
+            style.border = style.outline = "none";
+            style.width = style.height = "100%";
+
+            doc.body.appendChild(iframe);
+
+            location.replace("about:blank");
+        }
+    }
+}
+
+function schoology() {
+    openPopup("Home | Schoology", "/images/settings/schoology.ico");
+}
+
+function ab() {
+    openPopup("about:blank", "/images/settings/about-blank.png");
 }

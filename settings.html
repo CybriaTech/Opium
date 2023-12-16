@@ -96,11 +96,11 @@ main {
     align-items: center;
 }
 
-.color-picker {
+.picker {
     width: 10%;
 }
 
-#color-canvas {
+#color {
     cursor: crosshair;
     background: #e4e4e4;
     height: 200px;
@@ -196,10 +196,12 @@ input {
         </div>
         <div id="theme">
             <h3 class="title-settings">Page Theme</h3>
-            <div class="color-picker">
-                <canvas id="color"></canvas>
-                <p class="hex">#ffffff</p>
+        <div class="picker" id="picker" style="outline: 1px solid #ffffff;">
+            <div id="colorIndi" class="color-indi">
+                <p id="hex">#ffffff</p>
             </div>
+            <canvas id="color"></canvas>
+        </div>
             </div>
                     <div class="widgetbot">
             <h3 class="title-settings">WidgetBot</h3>

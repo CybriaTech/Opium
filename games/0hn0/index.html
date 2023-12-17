@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -14,7 +16,7 @@
     <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
     <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
-    <title>0hn0 | Opium</title>
+    <title>0h n0 | Opium</title>
     <link rel="stylesheet" href="/css/index.css">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
@@ -35,20 +37,10 @@
 }
 </style>
   <style>
-main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-      
     .game-area {
         box-shadow: 0 0 5px #fff;
         position: relative;
         text-align: center;
-        display: flex;
-        align-items: center;
     }
 
     .game-frame {
@@ -57,6 +49,22 @@ main {
         width: 600px;
         height: 500px;
         object-cover: fill;
+    }
+
+    .controls {
+        box-shadow: 0 0 5px #fff;
+        position: absolute;
+        border: 1px solid #fff;
+        top: 95%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #616161;
+        border-radius: 0 0 5px 5px;
+        height: 40px;
     }
 
     .game-title {
@@ -68,38 +76,20 @@ main {
         margin: 0;
     }
 
-.controls {
-    box-shadow: 0 0 5px #fff;
-    position: absolute;
-    border: 1px solid #fff;
-    top: 95%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #616161;
-    border-radius: 0 0 5px 5px;
-    height: 40px;
-}
-
-.go-to-game,
-.fullscreen {
-    background: transparent;
-    font-size: 20px;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    margin-right: 100px;
-}
+    .fullscreen {
+        background: transparent;
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+    }
   </style>
 </head>
 <body style="overflow: hidden;">
     <script src="/js/header.js"></script>
   <main>
       <div class="game-area">
-          <iframe src="game.html" class="game-frame" allowfullscreen="true" id="gameIframe"></iframe>
+          <iframe src="game/play.html" class="game-frame" allowfullscreen="true" id="gameIframe"></iframe>
           <div class="controls">
               <p class="game-title">0h n0</p>
               <button class="fullscreen" onclick="toggleFullscreen()"><i class="fas fa-expand"></i></button>

@@ -16,6 +16,8 @@ https://op1um.pages.dev
 
 https://opium-games.mybooty165.repl.co/
 
+https://opium-games.com/
+
 # Socials
 
 <a href="https://discord.gg/e2UXEwjcsg"><img height="30px" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"><img></a>

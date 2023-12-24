@@ -6,7 +6,7 @@ document.write(`
     </a>
     <nav>
       <a href="/games.html">Games</a>
-      <a href="p.html">Proxy</a> 
+      <a href="/p.html">Proxy</a> 
       <a href="/bookmarklets.html">Bookmarklets</a> 
       <a href="/emulators.html">Emulators</a> 
       <a href="https://github.com/CybriaTech/Opium"><i class="fab fa-github"></i></a>

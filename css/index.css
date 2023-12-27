@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
 
 body {
   background-color: #0e0e0e;
@@ -10,7 +11,7 @@ body {
 .title-index {
   line-height: 0.01em;
   text-transform: uppercase;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Gasoek One', sans-serif;
   text-align: center;
   font-size: 3em;
   align-items: center;

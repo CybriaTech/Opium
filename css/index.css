@@ -31,19 +31,26 @@ body {
 }
 
 .play-btn {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.05em;
-  margin-top: 8px;
-  width: 200px;
-  height: 40px;
-  border: none;
-  border-radius: 8px;
-  background-color: #616161;
-  color: #ffffff;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.05em;
+    margin-top: 8px;
+    width: auto; 
+    height: 40px;
+    margin-right: 10px; 
+    border: none;
+    border-radius: 8px;
+    background-color: #616161;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    display: inline-block; 
 }
 
+
+.play-btn:hover {
+    background-color: #444; 
+    transform: scale(1.05); 
+}
 main {
   position: absolute;
   top: 50%;
@@ -51,8 +58,3 @@ main {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
-.play-btn:hover {
-  transform: scale(1.05);
-}
-  

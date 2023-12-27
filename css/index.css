@@ -30,20 +30,26 @@ body {
   font-weight: bold;
 }
 
+.buttons-container {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;
+    margin-top: 20px; 
+}
+
 .play-btn {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.05em;
     margin-top: 8px;
-    width: auto; 
+    min-width: 150px; 
     height: 40px;
-    margin-right: 10px; 
     border: none;
     border-radius: 8px;
     background-color: #616161;
     color: #ffffff;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    display: inline-block; 
+    margin-right: 10px; 
 }
 
 
@@ -51,6 +57,7 @@ body {
     background-color: #444; 
     transform: scale(1.05); 
 }
+
 main {
   position: absolute;
   top: 50%;

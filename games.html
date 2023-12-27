@@ -149,40 +149,34 @@ main {
     </style>
 <script>
     function search() {
-    var searchTerm = document.querySelector('.search-bar').value.toLowerCase();
-    var gameTitles = document.querySelectorAll('.game-title');
+        var searchTerm = document.querySelector('.search-bar').value.toLowerCase();
+        var gameTitles = document.querySelectorAll('.game-title');
 
-    if (searchTerm === '') {
-        gameTitles.forEach(function (title) {
-            title.closest('.game').style.display = 'block';
-        });
-    } else {
         gameTitles.forEach(function (title) {
             var gameTitleText = title.innerText.toLowerCase();
+            var gameElement = title.closest('.game');
 
-            if (gameTitleText.includes(searchTerm)) {
-                title.closest('.game').style.display = 'block';
+            if (searchTerm === '' || gameTitleText.includes(searchTerm)) {
+                gameElement.style.display = 'block';
             } else {
-                title.closest('.game').style.display = 'none';
+                gameElement.style.display = 'none';
             }
         });
     }
-}
 
-document.querySelector('.search-bar').addEventListener('keyup', function (event) {
-    if (event.key === 'Enter') {
+    document.querySelector('.search-bar').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            search();
+        }
+    });
+
+    document.querySelector('.search-enter').addEventListener('click', function () {
         search();
-    }
-});
+    });
 
-document.querySelector('.search-enter').addEventListener('click', function () {
-    search();
-});
-
-document.querySelector('.search-bar').addEventListener('focus', function () {
-    this.value = '';
-    search();
-});
+    document.querySelector('.search-bar').addEventListener('input', function () {
+        search();
+    });
 </script>
 </head>
 <body>

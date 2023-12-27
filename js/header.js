@@ -16,20 +16,22 @@ document.write(`
   </header>
 `);
 
-let userInput = '';
-const secretCode = 'OPIUM';
+document.addEventListener("DOMContentLoaded", function() {
+  let userInput = '';
+  const secretCode = 'OPIUM';
 
-function checkSecretCode() {
-  if (userInput === secretCode) {
-    window.location.href = "/images/nut.mp4/"; // 
-  } else {
-    userInput = '';
+  function checkSecretCode() {
+    if (userInput === secretCode) {
+      window.location.href = "/images/nut.mp4/";
+    } else {
+      userInput = '';
+    }
   }
-}
 
-document.addEventListener('keydown', (event) => {
-  userInput += event.key.toUpperCase();
-  userInput = userInput.slice(-secretCode.length);
+  document.addEventListener('keydown', (event) => {
+    userInput += event.key.toUpperCase();
+    userInput = userInput.slice(-secretCode.length);
   
-  checkSecretCode();
+    checkSecretCode();
+  });
 });

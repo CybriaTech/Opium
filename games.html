@@ -146,11 +146,62 @@ main {
 .search-enter:hover {
   background-color: red;
 }
+
+    .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+}
+
+.arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-content {
+    padding: 20px;
+    color: #fff;
+}
+
+.sidebar-expanded {
+    left: 0; /
+}
+
+.sidebar-expanded .arrow {
+    transform: rotate(180deg); 
+}
     </style>
 </head>
 <body>
     <script src="/js/header.js"></script>
     <script src="/js/sorting.js"></script>
+    <div class="sidebar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <span class="arrow"></span>
+            </button>
+            <div class="sidebar-content">
+                <h2>Sidebar</h2>
+                <p>Content</p>
+            </div>
+        </div>
     <br>
     <div id="search">
     <input type="text" class="search-bar" placeholder="Search For A Game...">
@@ -815,5 +866,12 @@ var msnry = new Masonry( elem, {
         search();
     });
 </script>
+    <script>
+const sidebar = document.querySelector('.sidebar');
+
+function toggleSidebar() {
+    sidebar.classList.toggle('sidebar-expanded');
+}
+    </script>
 </body>
 </html>

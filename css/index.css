@@ -32,17 +32,17 @@ body {
 }
 
 .buttons-container {
-    display: flex; 
-    justify-content: space-around; 
-    align-items: center;
-    margin-top: 20px; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    margin-top: 20px;
 }
 
 .play-btn {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.05em;
     margin-top: 8px;
-    min-width: 150px; 
+    min-width: 150px;
     height: 40px;
     border: none;
     border-radius: 8px;
@@ -50,13 +50,14 @@ body {
     color: #ffffff;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    margin-right: 10px; 
+    margin-right: 10px;
+    margin-bottom: 10px; 
 }
 
 
 .play-btn:hover {
-    background-color: #444; 
-    transform: scale(1.05); 
+    background-color: #444;
+    transform: scale(1.05);
 }
 
 main {

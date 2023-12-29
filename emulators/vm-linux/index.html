@@ -1,0 +1,296 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+		<link rel="stylesheet" type="text/css" href="/standard.css" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="canonical" href="https://whitespider.gq/vmlinux" />
+		    <title>VM Linux | Opium</title>
+      <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
+    <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
+          <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-20CSCVKLF3');
+</script>
+		<style type="text/css">
+body {
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: #000000;
+	font-family: arial, sans-serif;
+}
+
+label input[type="file"] {
+	display: none;
+}
+
+input[type="number"], input[type="text"], input[type="url"] {
+	position: relative;
+	display: block;
+	width: fit-content;
+	height: auto;
+	outline: none;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px;
+	color: #ffffff;
+	background-color: #001a1a;
+}
+
+#toolbar {
+	position: relative;
+	display: flex;
+	width: fit-content;
+	height: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+input[type=file] {
+	position: relative;
+	display: block;
+	width: fit-content;
+	height: fit-content;
+}
+
+.buttons, input[type=file]::file-selector-button {
+	background-color: #1f1f1f;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}		 
+
+#option-bar {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#option-bar-title {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 16px;
+	font-weight: 800;
+}
+
+.option {
+	position: relative;
+	display: flex;
+	width: fit-content;
+	height: fit-content;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.option-label {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	margin-right: 5px;
+}
+
+.option-unit {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	margin-left: 5px;
+}
+
+select {
+	position: relative;
+	display: block;
+	width: fit-content;
+	height: auto;
+	outline: none;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	color: #ffffff;
+	background-color: #001a1a;
+}
+
+#apply {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#os-setup-menu {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#screen-container {
+	position: relative;
+	width: 1024px;
+	height: 768px;
+	padding: 10px;
+	margin: auto;
+	border-style: solid;
+	border-color: #ffffff;
+	border-width: 1px;
+	border-radius: 10px;
+}
+
+#screen {
+	position: absolute;
+	display: block;
+	width: 1024px;
+	height: 768px;
+	min-width: 1024px;
+	min-height: 768px;
+	max-width: 1024px;
+	max-height: 768px;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	resize: none;
+	overflow: hidden;
+	background-color: #000000;
+}
+
+#vm {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	outline: none;
+	border: none;
+	resize: none;
+	white-space: pre-wrap;
+	font-size: 16px;
+	font-family: monospace;
+	font-weight: 600;
+	font-style: normal;
+	line-height: 16px;
+	text-align: start;
+	text-decoration: none;
+}
+		</style>
+		<script type="text/javascript" src="libv86.js"></script>
+	</head>
+	<body>
+		<div id="toolbar">
+			<div id="start" class="buttons">Start</div>
+			<div id="pause" class="buttons" disabled="true">Pause</div>
+			<div id="save-state" class="buttons" disabled="true">Save State</div>
+			<label id="restore-state" class="buttons">Restore State<input type="file" /></label>
+			<div id="fullscreen" class="buttons">Fullscreen</div>
+			<div id="vm-options" class="buttons">VM Options</div>
+		</div>
+		<div id="option-bar" style="display: none;">
+			<div id="option-bar-title">VM Options</div>
+			<div class="option">
+				<div class="option-label">OS:</div>
+				<select id="os">
+					<option value="freedos">FreeDOS (minimal)</option>
+					<option value="linux2_6_34">Linux 2.6.34</option>
+					<option value="linux3_18_0">Linux 3.18.0</option>
+					<option value="linux4_16_13" selected="true">Linux 4.16.13</option>
+					<option value="msdos">MS-DOS</option>
+					<option value="win98">Windows 98</option>
+					<option value="custom">Custom</option>
+				</select>
+			</div>
+			<div id="os-setup-menu" style="display: none">
+				<div class="option">
+					<div class="option-label">BIOS:</div>
+					<select id="bios">
+						<option value="def">Default</option>
+					</select>
+				</div>
+				<div class="option">
+					<div class="option-label">VGA BIOS:</div>
+					<select id="vga-bios">
+						<option value="def">Default</option>
+					</select>
+				</div>
+				<div class="option">
+					<div class="option-label">Boot Order:</div>
+					<select id="boot-order">
+						<option value="213">CD, Floppy, Hard Disk</option>
+						<option value="123">CD, Hard Disk, Floppy</option>
+						<option value="231">Floppy, CD, Hard Disk</option>
+						<option value="321">Floppy, Hard Disk, CD</option>
+						<option value="312">Hard Disk, Floppy, CD</option>
+						<option value="132">Hard Disk, CD, Floppy</option>
+					</select>
+				</div>
+				<div class="option">
+					<div class="option-label">Hard Disk 1:</div>
+					<input id="hda" type="file" />
+				</div>
+				<div class="option">
+					<div class="option-label">Hard Disk 2:</div>
+					<input id="hdb" type="file" />
+				</div>
+				<div class="option">
+					<div class="option-label">Floppy Disk 1:</div>
+					<input id="fda" type="file" />
+				</div>
+				<div class="option">
+					<div class="option-label">Floppy Disk 2:</div>
+					<input id="fdb" type="file" />
+				</div>
+				<div class="option">
+					<div class="option-label">CD-ROM (iso):</div>
+					<input id="cdrom" type="file" />
+				</div>
+			</div>
+			<div class="option">
+				<div class="option-label">Memory Size:</div>
+				<input id="memory-size" type="number" value="512" placeholder="512" min="32" max="16384" />
+				<div class="option-unit">MB</div>
+			</div>
+			<div class="option">
+				<div class="option-label">VGA Memory Size:</div>
+				<input id="vga-memory-size" type="number" value="64" placeholder="64" min="8" max="16384"/>
+				<div class="option-unit">MB</div>
+			</div>
+			<div class="option">
+				<div class="option-label">Display Dimension:</div>
+				<input id="display-width" type="number" value="1024" placeholder="1024" min="800" max="8000"/>
+				<div>x</div>
+				<input id="display-height" type="number" value="768" placeholder="768" min="600" max="6000"/>
+			</div>
+			<div id="apply" class="buttons">Apply</div>
+		</div>
+		<div id="screen-container">
+			<div id="screen">
+				<div id="vm"></div>
+				<canvas style="display: none"></canvas>
+			</div>
+		</div>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>

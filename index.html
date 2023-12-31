@@ -35,12 +35,12 @@
 }
 
 main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
   .news-section {
     position: fixed;
@@ -58,15 +58,15 @@ main {
     font-size: 14px;
     line-height: 1.5;
 } 
-     #countdown {
- position: absolute;
- top: 50px;
- left: 50%;
- transform: translateX(-50%);
- font-size: 24px;
- font-weight: bold;
- z-index: 999;
-}
+ #countdown {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 999;
+        }
 </style>
 </head>
 <body>
@@ -109,18 +109,7 @@ main {
      retina_detect: true
    });
 </script>
-    <script src="/js/settings.js"></script>
-<div id="widgetbot" style="display: none;">
-</div>
-<script>
-var elem = document.querySelector('.grid');
-var msnry = new Masonry( elem, {
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
-</script>
- <script>
-        
+        <script>
         function updateCountdown() {
             var countDownDate = new Date(); 
             countDownDate.setUTCHours(6, 0, 0); 
@@ -148,5 +137,15 @@ var msnry = new Masonry( elem, {
 
         updateCountdown();
     </script>
+    <script src="/js/settings.js"></script>
+<div id="widgetbot" style="display: none;">
+</div>
+<script>
+var elem = document.querySelector('.grid');
+var msnry = new Masonry( elem, {
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>
 </body>
 </html>

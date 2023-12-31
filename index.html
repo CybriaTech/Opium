@@ -25,6 +25,37 @@
 
   gtag('config', 'G-20CSCVKLF3');
 </script>
+    <script>
+  function isPastDate(targetDate) {
+    const currentDate = new Date();
+    return currentDate > targetDate;
+  }
+
+  function startPartyParticles() {
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: ['#FF0000', '#00FF00', '#0000FF'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 5, random: true },
+        line_linked: { enable: false },
+        move: { enable: true, speed: 1 }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: false }, onclick: { enable: false }, resize: true },
+        modes: { grab: { distance: 200, line_linked: { opacity: 1 } } }
+      },
+      retina_detect: true
+    });
+  }
+        
+  const targetDate = new Date('2023-12-25T06:00:00Z'); 
+  if (isPastDate(targetDate)) {
+    startPartyParticles(); 
+  }
+</script>
     <style>
     #particles-js {
   position: absolute;

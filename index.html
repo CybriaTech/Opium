@@ -35,12 +35,12 @@
 }
 
 main {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
   .news-section {
     position: fixed;
@@ -58,21 +58,11 @@ main {
     font-size: 14px;
     line-height: 1.5;
 } 
- #countdown {
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            font-weight: bold;
-            z-index: 999;
-        }
 </style>
 </head>
 <body>
     <script src="/js/header.js"></script>
     <main>
-        <div id="countdown"></div>
         <h1 class="title-index">Opium</h1>
         <h3 class="desc">The CybriaGames Sequel</h3>
        <div class="buttons-container">
@@ -109,34 +99,6 @@ main {
      retina_detect: true
    });
 </script>
-        <script>
-        function updateCountdown() {
-            var countDownDate = new Date(); 
-            countDownDate.setUTCHours(6, 0, 0); 
-
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-
-            if (distance <= 0) {
-                document.getElementById("countdown").innerHTML = "00:00:00"; 
-            } else {
-                var hours = Math.floor(distance / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                var countdownString =
-                    hours.toString().padStart(2, "0") + ":" +
-                    minutes.toString().padStart(2, "0") + ":" +
-                    seconds.toString().padStart(2, "0");
-
-                document.getElementById("countdown").innerHTML = countdownString;
-
-                setTimeout(updateCountdown, 1000);
-            }
-        }
-
-        updateCountdown();
-    </script>
     <script src="/js/settings.js"></script>
 <div id="widgetbot" style="display: none;">
 </div>

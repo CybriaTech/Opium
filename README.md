@@ -4,7 +4,7 @@
 </kbd>
 </p>
 
-<h1 align="center">Opium Games</h1>
+<h1 align="center">Opium™</h1>
 
 🕹Go past the boundaries with Opium! Our service hosts over 100+ unblocked games, includes many selectable proxies, emulators, and tab cloakers. And guess what? All of it is free with no fees at all for anything! 🎮
 

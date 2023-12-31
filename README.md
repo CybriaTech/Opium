@@ -46,3 +46,5 @@ https://opium-games.com/
 ## Contributors
 
 <img src="https://contrib.rocks/image?repo=CybriaTech/Opium">
+
+###### Contributors are on the bottom since you can view them quicker on the side panel on the right.

@@ -58,11 +58,20 @@ main {
     font-size: 14px;
     line-height: 1.5;
 } 
+    #countdown {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+        }
 </style>
 </head>
 <body>
     <script src="/js/header.js"></script>
     <main>
+        <div id="countdown"></div>
         <h1 class="title-index">Opium</h1>
         <h3 class="desc">The CybriaGames Sequel</h3>
        <div class="buttons-container">
@@ -109,5 +118,31 @@ var msnry = new Masonry( elem, {
   columnWidth: 200
 });
 </script>
+<script>
+        function updateCountdown() {
+            var countDownDate = new Date("January 1, 2024 00:00:00 GMT-0600").getTime(); 
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            if (distance <= 0) {
+                document.getElementById("countdown").innerHTML = "00 > 00:00 < 00 :00 < 00"; 
+            } else {
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the countdown timer with the specified format
+                document.getElementById("countdown").innerHTML =
+                    hours.toString().padStart(2, "0") + " > " +
+                    minutes.toString().padStart(2, "0") + " < " +
+                    seconds.toString().padStart(2, "0") + " :00 < 00";
+
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        // Call the function to start the countdown
+        updateCountdown();
+    </script>
 </body>
 </html>

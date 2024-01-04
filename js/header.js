@@ -15,23 +15,3 @@ document.write(`
     </nav>
   </header>
 `);
-
-document.addEventListener("DOMContentLoaded", function() {
-  let userInput = '';
-  const secretCode = 'OPIUM';
-
-  function checkSecretCode() {
-    if (userInput === secretCode) {
-      window.location.href = "/images/nut.mp4/";
-    } else {
-      userInput = '';
-    }
-  }
-
-  document.addEventListener('keydown', (event) => {
-    userInput += event.key.toUpperCase();
-    userInput = userInput.slice(-secretCode.length);
-  
-    checkSecretCode();
-  });
-});

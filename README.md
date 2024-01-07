@@ -14,8 +14,6 @@
 
 https://op1um.pages.dev
 
-https://opium-games.mybooty165.repl.co/
-
 https://opium-games.com/
 
 # Socials
@@ -29,7 +27,6 @@ https://opium-games.com/
 
 <a target="_blank" href="https://vercel.com/new/clone?repository-url=https://github.com/CybriaTech/Opium"><img alt="Deploy to Vercel" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/vercel.svg"></a>
 <a target="_blank" href="https://app.netlify.com/start/deploy?repository=https://github.com/CybriaTech/Opium"><img alt="Deploy to Netlify" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/netlify.svg"></a>
-<a target="_blank" href="https://replit.com/github/CybriaTech/Opium"><img alt="Run on Replit" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg"></a>
 <a target="_blank" href="https://glitch.com/edit/#!/import/github/CybriaTech/Opium"><img alt="Remix on Glitch" src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/glitch.svg"></a>
 
 

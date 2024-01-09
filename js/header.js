@@ -16,7 +16,7 @@ document.write(`
   </header>
 `);
 
-// lunaris flashback LOL (its an easter egg)
+// lunaris flashback LOL (its an easter egg) >:)
 document.addEventListener('lunaris', function() {
   const h2Element = document.querySelector('header .title h2');
   if (h2Element) {
@@ -35,9 +35,9 @@ document.addEventListener('lunaris', function() {
   
   document.title = 'Game Vault - Lunaris';
 
-  const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
-  favicon.type = 'image/x-icon';
-  favicon.rel = 'icon';
-  favicon.href = '/images/logo/lunarisicon.jpeg';
-  document.head.appendChild(favicon);
+const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
+favicon.type = 'image/jpeg'; 
+favicon.rel = 'shortcut icon'; 
+favicon.href = '/images/logo/lunarisicon.jpeg';
+document.head.appendChild(favicon);
 });

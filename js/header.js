@@ -25,7 +25,7 @@ document.addEventListener('lunaris', function() {
 
   const imgElement = document.querySelector('header .title img');
   if (imgElement) {
-    imgElement.src = '/images/logo/lunaris.png';
+    imgElement.src = '/images/logo/lunarisicon.jpeg';
   }
 
   const headerElement = document.querySelector('header');
@@ -38,6 +38,6 @@ document.addEventListener('lunaris', function() {
   const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
   favicon.type = 'image/x-icon';
   favicon.rel = 'icon';
-  favicon.href = '/images/logo/lunaris.png';
+  favicon.href = '/images/logo/lunarisicon.jpeg';
   document.head.appendChild(favicon);
 });

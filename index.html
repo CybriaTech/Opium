@@ -43,14 +43,15 @@ main {
 }
 
 #logo-title {
-        position: absolute;
-        top: 14%; 
+        position: fixed;
+        top: 14px; 
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
-        width: 200px; 
+        max-width: 300px; 
+        width: 20%; 
         height: auto;
-        opacity: 0; 
+        opacity: 0;
         animation: fadeIn 1.5s ease forwards, stretchAnimation 3s ease-in-out infinite;
     }
 
@@ -95,6 +96,25 @@ main {
     </main>
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  window.onload = function() {
+      adjustLogoSize();
+      window.addEventListener('resize', adjustLogoSize);
+  };
+
+  function adjustLogoSize() {
+      var logo = document.getElementById('logo-title');
+      var logoWidthPercentage = 20;
+      var maxWidth = 300; 
+
+      var logoWidth = window.innerWidth * (logoWidthPercentage / 100);
+      if (logoWidth > maxWidth) {
+          logoWidth = maxWidth;
+      }
+
+      logo.style.width = logoWidth + 'px';
+  }
+  </script>
 <script>
    particlesJS('particles-js', {
      particles: {

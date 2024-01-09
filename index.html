@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -15,8 +14,8 @@
     <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
     <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
-    <link rel="stylesheet" href="/css/index.css">
     <title>Opium</title>
+    <link rel="stylesheet" href="/css/index.css">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
 <script>
@@ -43,138 +42,34 @@ main {
   text-align: center;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
+ #logo-title {
+        position: absolute;
+        top: 6%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: 200px; 
+        height: auto;
+        animation: stretchAnimation 3s ease-in-out infinite;
+    }
 
-body {
-  background-color: #0e0e0e;
-  color: #ffffff;
-  padding: 0;
-  margin: 0;
-}
-
-.title-index {
-  line-height: 0.01em;
-  text-transform: uppercase;
-  font-family: 'Gasoek One', sans-serif;
-  text-align: center;
-  font-size: 3em;
-  align-items: center;
-  color: #ffffff;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.desc {
-  line-height: 1.5em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-family: 'Source Sans Pro', sans-serif;
-  text-align: center;
-  align-items: center;
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.buttons-container {
-    margin-top: 20px;
-}
-
-.button-row {
-    margin-bottom: 10px;
-}
-
-.play-btn {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.05em;
-    min-width: 150px;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    background-color: #616161;
-    color: #ffffff;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.play-btn:hover {
-    background-color: #444;
-    transform: scale(1.05);
-}
-
-main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-]
-
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
-
-header {
-  z-index: 999999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #1f1f1f;
-  padding: 5px 20px;
-  height: 25px;
-}
-
-.title {
-  font-family: 'Gasoek One', sans-serif;
-  font-size: 1em;
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease;
-}
-
-.title img {
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
-  vertical-align: middle;
-}
-
-nav {
-  z-index: 999999;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-grow: 1;
-}
-
-nav a {
-  font-family: 'Source Sans Pro', sans-serif;
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-  margin-left: 10px; 
-  margin-right: 10px;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
- color: #ff0000;
-}
-
-iframe {
-  background-color: #fff;
-}
-
+    @keyframes stretchAnimation {
+        0%, 100% {
+            transform: translateX(-50%) scaleY(1) scaleX(1);
+        }
+        50% {
+            transform: translateX(-50%) scaleY(1.1) scaleX(1.1);
+        }
+    }
 </style>
 </head>
 <body>
+        <img id="logo-title" src="https://op1um.pages.dev/images/logo/opium-clear.png" alt="Opium Logo">
     <script src="/js/header.js"></script>
     <main>
         <h1 class="title-index">Opium</h1>
         <h3 class="desc">The CybriaGames Sequel</h3>
+
        <div class="buttons-container">
             <div class="button-row">
                 <button class="play-btn" onclick="window.location.href='games.html';">Games</button>
@@ -183,13 +78,8 @@ iframe {
             </div>
             <div class="button-row">
                 <button class="play-btn" onclick="window.location.href='emulators.html';">Emulators</button>
-                <button class="play-btn" onclick="window.location.href='euphonia.html';">Euphonia (NEW)</button>       
-                <button class="play-btn" onclick="window.location.href='widgetbot.html';">Chatroom</button>            
-            <div class="button-row">
-
                 <button class="play-btn" onclick="window.location.href='https://github.com/CybriaTech/Opium';">Our Github Repo</button>
                 <button class="play-btn" onclick="window.location.href='https://bit.ly/cybriatech';">Join Our Discord</button>
-            
             </div>
        </div>
     </main>

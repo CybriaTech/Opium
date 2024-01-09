@@ -11,8 +11,8 @@
     <meta name="keywords" content="games, unblocked games, unblocked games, video games, unity, webgl, swf, html5, cybriagames, cybriagames sequel, emulators">
     <link rel="stylesheet" href="/css/header.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
-    <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
     <title>Games | Opium</title>
       <!-- Google tag (gtag.js) -->
@@ -895,29 +895,25 @@ var msnry = new Masonry( elem, {
     });
 </script>
 <script>
-         // lunaris easter egg P1
-        function sendLunarisFunction() {
-          const lunarisEvent = new Event('lunaris');
-          
-          document.dispatchEvent(lunarisEvent);
-        }
-    
-        let typedCharacters = ''; 
-    
+        // lunaris easter egg
+        let typedCharacters = '';
         document.addEventListener('keypress', function(event) {
           typedCharacters += event.key.toLowerCase();
     
           if (typedCharacters === 'lunaris') {
-            sendLunarisFunction(); 
             typedCharacters = ''; 
+    
+            document.body.style.backgroundColor = '#151523';    
+            const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
+            favicon.type = 'image/jpeg';
+            favicon.rel = 'shortcut icon';
+            favicon.href = '/images/logo/lunarisicon.jpeg';
+            document.head.appendChild(favicon);
+            
+            const lunarisEvent = new Event('lunaris');
+            document.dispatchEvent(lunarisEvent);
           }
         });
       </script>
-      <script>
-    // lunaris easter egg P2
-    document.addEventListener('lunaris', function() {
-      document.body.style.backgroundColor = '#151523';
-    });
-  </script>
 </body>
 </html>

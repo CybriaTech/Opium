@@ -34,10 +34,4 @@ document.addEventListener('lunaris', function() {
   }
   
   document.title = 'Game Vault - Lunaris';
-
-const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
-favicon.type = 'image/jpeg'; 
-favicon.rel = 'shortcut icon'; 
-favicon.href = '/images/logo/lunarisicon.jpeg';
-document.head.appendChild(favicon);
 });

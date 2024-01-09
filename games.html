@@ -894,5 +894,30 @@ var msnry = new Masonry( elem, {
         search();
     });
 </script>
+<script>
+         // lunaris easter egg P1
+        function sendLunarisFunction() {
+          const lunarisEvent = new Event('lunaris');
+          
+          document.dispatchEvent(lunarisEvent);
+        }
+    
+        let typedCharacters = ''; 
+    
+        document.addEventListener('keypress', function(event) {
+          typedCharacters += event.key.toLowerCase();
+    
+          if (typedCharacters === 'lunaris') {
+            sendLunarisFunction(); 
+            typedCharacters = ''; 
+          }
+        });
+      </script>
+      <script>
+    // lunaris easter egg P2
+    document.addEventListener('lunaris', function() {
+      document.body.style.backgroundColor = '#151523';
+    });
+  </script>
 </body>
 </html>

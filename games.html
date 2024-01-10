@@ -913,13 +913,15 @@ var msnry = new Masonry( elem, {
           typedCharacters += event.key.toLowerCase();
     
           if (typedCharacters === 'lunaris') {
-            typedCharacters = ''; 
+            typedCharacters = '';
     
             const games = document.querySelectorAll('.game'); 
-        games.forEach(function(game) {
-          game.style.backgroundColor = '#0055ff'; 
-        });
-
+            games.forEach(function(game) {
+              game.style.backgroundColor = '#0055ff'; 
+            });
+    
+            document.body.style.backgroundColor = '#151523';
+    
             const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
             favicon.type = 'image/jpeg';
             favicon.rel = 'shortcut icon';

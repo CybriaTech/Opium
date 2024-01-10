@@ -909,12 +909,10 @@ var msnry = new Masonry( elem, {
           if (typedCharacters === 'lunaris') {
             typedCharacters = ''; 
     
-            document.body.style.backgroundColor = '#151523';
-            const gameDiv = document.querySelector('.game'); 0
-            
-        if (gameDiv) {
-          gameDiv.style.backgroundColor = '#0055ff'; 
-        }    
+            const games = document.querySelectorAll('.game'); 
+        games.forEach(function(game) {
+          game.style.backgroundColor = '#0055ff'; 
+        });
 
             const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
             favicon.type = 'image/jpeg';

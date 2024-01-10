@@ -909,11 +909,17 @@ var msnry = new Masonry( elem, {
           if (typedCharacters === 'lunaris') {
             typedCharacters = ''; 
     
-            document.body.style.backgroundColor = '#151523';    
+            document.body.style.backgroundColor = '#151523';
+            const gameDiv = document.querySelector('.game'); 0
+            
+        if (gameDiv) {
+          gameDiv.style.backgroundColor = '#0055ff'; 
+        }    
+
             const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
             favicon.type = 'image/jpeg';
             favicon.rel = 'shortcut icon';
-            favicon.href = '/images/logo/lunarisicon.jpeg';
+            favicon.href = '/images/logo/lunarisicon.jpeg'; 
             document.head.appendChild(favicon);
             
             const lunarisEvent = new Event('lunaris');

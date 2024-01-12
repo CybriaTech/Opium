@@ -5,10 +5,11 @@ document.write(`
       <h2>Opium</h2>
     </a>
     <nav>
-      <a href="/games.html">Games</a>
-      <a href="/proxies">Proxy</a> 
-      <a href="/bookmarklets.html">Bookmarklets</a> 
-      <a href="/emulators.html">Emulators</a> 
+      <a href="/games.html"><i class="fas fa-gamepad"></i></a>
+      <a href="/proxies"><i class="fas fa-lock"></i></a> 
+      <a href="/bookmarklets.html"><i class="fas fa-code"></i></a> 
+      <a href="/emulators.html"><i class="fas fa-server"></i></a> 
+      <a href="/nsfw.html"><i class="fas fa-triangle-exclamation"></i></a> 
       <a href="https://github.com/CybriaTech/Opium"><i class="fab fa-github"></i></a>
       <a href="/widgetbot.html"><i class="fab fa-discord" style="color: #7289DA;"></i></a>
       <a href="/settings.html"><i class="fas fa-cog"></i></a>

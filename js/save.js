@@ -1,32 +1,88 @@
-$(document).ready(function() {
-  var allCookies = "";
-  var cookiesArray = document.cookie.split("; ");
-  for (var i = 0; i < cookiesArray.length; i++) {
-    allCookies += cookiesArray[i] + "; ";
+function getMainSave() {
+  var mainSave = {};
+  var localStorageDontSave = ["supportalert"];
+  var localStorageSave = Object.entries(localStorage);
+
+  for (let entry in localStorageSave) {
+    if (localStorageDontSave.includes(localStorageSave[entry][0])) {
+      localStorageSave.splice(entry, 1);
+    }
   }
 
-  var encryptedCookies = CryptoJS.AES.encrypt(allCookies, "opiumsave").toString();
-  var blob = new Blob([encryptedCookies], { type: 'text/plain' });
-  var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'data.opium';
-  a.click();
+  localStorageSave = btoa(JSON.stringify(localStorageSave));
+  mainSave.localStorage = localStorageSave;
 
-  $("#importBtn").click(function() {
-    $("#fileInput").click();
-  });
+  cookiesSave = document.cookie;
+  cookiesSave = btoa(cookiesSave);
+  mainSave.cookies = cookiesSave;
 
-  $("#fileInput").change(function(event) {
-    var file = event.target.files[0];
+  mainSave = btoa(JSON.stringify(mainSave));
+  mainSave = CryptoJS.AES.encrypt(mainSave, "opiumsave").toString();
+
+  return mainSave;
+}
+
+function downloadMainSave() {
+  var data = new Blob([getMainSave()]);
+  var dataURL = URL.createObjectURL(data);
+
+  var fakeElement = document.createElement("a");
+  fakeElement.href = dataURL;
+  fakeElement.download = "data.opium";
+  fakeElement.click();
+  URL.revokeObjectURL(dataURL);
+}
+
+function getMainSaveFromUpload(data, key) {
+  if(key) {
+    data = CryptoJS.AES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+  } else {
+    data = CryptoJS.AES.decrypt(data, "opiumsave").toString(CryptoJS.enc.Utf8);
+  }
+
+  var mainSave = JSON.parse(atob(data));
+  var mainLocalStorageSave = JSON.parse(atob(mainSave.localStorage));
+  var cookiesSave = atob(mainSave.cookies);
+
+  for (let item of mainLocalStorageSave) {
+    localStorage.setItem(item[0], item[1]);
+  }
+
+  document.cookie = cookiesSave;
+}
+
+function uploadMainSave(key) {
+  var hiddenUpload = document.querySelector("#fileInput");
+  hiddenUpload.click();
+
+  hiddenUpload.addEventListener("change", function (e) {
+    var files = e.target.files;
+    var file = files[0];
+    if (!file) {
+      return;
+    }
+
     var reader = new FileReader();
 
-    reader.onload = function(e) {
-      var encryptedCookies = e.target.result;
-      var decryptedCookies = CryptoJS.AES.decrypt(encryptedCookies, "opiumsave").toString(CryptoJS.enc.Utf8);
-      document.cookie = decryptedCookies;
-      alert("Cookies imported successfully!");
+    reader.onload = function (e) {
+      if(key) {
+        getMainSaveFromUpload(e.target.result, key);
+      } else {
+        getMainSaveFromUpload(e.target.result);
+      }
+      alert("Upload Successful!");
     };
 
     reader.readAsText(file);
+  });
+}
+
+$(document).ready(function() {
+  $("#exportBtn").click(function() {
+    downloadMainSave();
+  });
+
+  $("#importBtn").click(function() {
+    uploadMainSave();
   });
 });

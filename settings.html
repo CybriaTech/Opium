@@ -170,17 +170,23 @@ input {
 </head>
 <body style="overflow: hidden;">
     <script src="/js/header.js"></script>
+    <input type="file" id="fileInput" accept=".opium" hidden>
     <main>
     <br>
     <br>
         <h1 class="title-index">Settings</h1>
         <br>
-        <input class="hiddenUpload" type="file" accept=".opium" hidden />
         <div id="settings-container">
         <div id="tab-cloaking">
             <h3 class="title-settings">Tab Cloaking</h3>
             <button class="play-settings" onclick="schoology()">Open In Schoology</button>
             <button class="play-settings" onclick="ab()">Open In about:blank</button>
+            <br>
+        </div>
+                    <div id="tab-cloaking">
+            <h3 class="title-settings">Tab Cloaking</h3>
+                        <button class="play-settings" id="exportBtn">Export Data</button>
+<button class="play-settings" id="importBtn">Import Data</button>
             <br>
         </div>
         </div>
@@ -207,7 +213,6 @@ input {
          retina_detect: true
        });
     </script>
-    <script src="/js/settings.js"></script>
 <div id="widgetbot" style="display: none;">
 </div>
 <script>

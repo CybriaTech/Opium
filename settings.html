@@ -16,6 +16,7 @@
     <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
     <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
+    <script src="/js/save.js"></script>
     <title>Settings | Opium</title>
       <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
@@ -179,6 +180,12 @@ input {
             <h3 class="title-settings">Tab Cloaking</h3>
             <button class="play-settings" onclick="schoology()">Open In Schoology</button>
             <button class="play-settings" onclick="ab()">Open In about:blank</button>
+            <br>
+        </div>
+        <div id="save-data">
+            <h3 class="title-settings">Save Progress</h3>
+            <button class="play-setting" onclick="save()">Export Game Data</button>
+            <button id="upload" class="play-settings" onclick="upload()">Upload</button>
             <br>
         </div>
         </div>

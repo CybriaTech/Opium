@@ -1,4 +1,4 @@
-function getMainSave() {
+function save() {
   var mainSave = {};
 
   var localStorageDontSave = ["supportalert"];
@@ -27,7 +27,7 @@ function getMainSave() {
 }
 
 function downloadMainSave() {
-  var data = new Blob([getMainSave()]);
+  var data = new Blob([save()]);
   var dataURL = URL.createObjectURL(data);
 
   var fakeElement = document.createElement("a");
@@ -37,7 +37,7 @@ function downloadMainSave() {
   URL.revokeObjectURL(dataURL);
 }
 
-function getMainSaveFromUpload(data, key) {
+function saveUpload(data, key) {
   if(key) {
     data = CryptoJS.AES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
   } else {
@@ -55,7 +55,7 @@ function getMainSaveFromUpload(data, key) {
   document.cookie = cookiesSave;
 }
 
-function uploadMainSave(key) {
+function upload(key) {
   var hiddenUpload = document.querySelector(".hiddenUpload");
   hiddenUpload.click();
 
@@ -70,9 +70,9 @@ function uploadMainSave(key) {
 
     reader.onload = function (e) {
       if(key) {
-        getMainSaveFromUpload(e.target.result, key);
+        saveUpload(e.target.result, key);
       } else {
-        getMainSaveFromUpload(e.target.result);
+        saveUpload(e.target.result);
       }
       $("#upload").text("Upload Successful!")
       setTimeout(function() {

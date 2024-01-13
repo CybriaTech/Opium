@@ -1,20 +1,21 @@
 function getMainSave() {
   var mainSave = {};
   var localStorageDontSave = ["supportalert"];
-  var localStorageSave = Object.entries(localStorage);
 
-  for (let entry in localStorageSave) {
-    if (localStorageDontSave.includes(localStorageSave[entry][0])) {
-      localStorageSave.splice(entry, 1);
-    }
-  }
+  var localStorageSave = Object.entries(localStorage).filter(function(entry) {
+    return !localStorageDontSave.includes(entry[0]);
+  });
 
   localStorageSave = btoa(JSON.stringify(localStorageSave));
   mainSave.localStorage = localStorageSave;
 
-  cookiesSave = document.cookie;
-  cookiesSave = btoa(cookiesSave);
-  mainSave.cookies = cookiesSave;
+  var allCookies = "";
+  var cookieArray = document.cookie.split("; ");
+  for (var i = 0; i < cookieArray.length; i++) {
+    allCookies += cookieArray[i] + "; ";
+  }
+  allCookies = btoa(allCookies);
+  mainSave.cookies = allCookies;
 
   mainSave = btoa(JSON.stringify(mainSave));
   mainSave = CryptoJS.AES.encrypt(mainSave, "opiumsave").toString();
@@ -34,7 +35,7 @@ function downloadMainSave() {
 }
 
 function getMainSaveFromUpload(data, key) {
-  if(key) {
+  if (key) {
     data = CryptoJS.AES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
   } else {
     data = CryptoJS.AES.decrypt(data, "opiumsave").toString(CryptoJS.enc.Utf8);
@@ -65,7 +66,7 @@ function uploadMainSave(key) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      if(key) {
+      if (key) {
         getMainSaveFromUpload(e.target.result, key);
       } else {
         getMainSaveFromUpload(e.target.result);

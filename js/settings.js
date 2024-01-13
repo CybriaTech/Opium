@@ -1,6 +1,6 @@
 function openPopup(title, iconUrl) {
     let inFrame;
-
+    
     try {
         inFrame = window !== top;
     } catch (e) {
@@ -8,7 +8,7 @@ function openPopup(title, iconUrl) {
     }
 
     if (!inFrame && !navigator.userAgent.includes("Firefox")) {
-        const popup = window.open("", "_blank"); 
+        const popup = window.open("about:blank", "_blank");
 
         if (!popup || popup.closed) {
         } else {
@@ -31,7 +31,7 @@ function openPopup(title, iconUrl) {
 
             doc.body.appendChild(iframe);
 
-            location.replace(""); 
+            location.replace("about:blank");
         }
     }
 }
@@ -41,5 +41,5 @@ function schoology() {
 }
 
 function ab() {
-    openPopup("", "/images/settings/about-blank.png");
+    openPopup("about:blank", "/images/settings/about-blank.png");
 }

@@ -138,19 +138,14 @@ main {
 .search-enter {
   width: 45px;
   height: 47px;
-  background: rgba(56, 56, 56, 0.6);
-  border-radius: 0 6px 6px 0;
+  background: rgba(56, 56, 56, 0.8);
   border: none;
   font-size: 20px;
+  border-radius: 0 6px 6px 0;
   color: #ffffff;
   transition: background-color 0.2s ease;
-  cursor: pointer;
   margin-left: -1px;
   z-index: 2;
-}
-
-.search-enter:hover {
-  background-color: red;
 }
     </style>
 </head>
@@ -160,7 +155,7 @@ main {
     <br>
     <div id="search">
     <input type="text" class="search-bar" placeholder="Search For A Game...">
-    <button class="search-enter" onclick="search()" type="submit"><i class="fas fa-search"></i></button>
+    <button class="search-enter"><i class="fas fa-search"></i></button>
     </div>
     <main>
         <div id="games">

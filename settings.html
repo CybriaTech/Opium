@@ -71,7 +71,9 @@ main {
   align-items: center;
 }
 
-#tab-cloaking {
+#section {
+    display: flex;
+    justify-content: center;
     background-color: #3c3c3c;
     border-radius: 6px;
     max-width: 250px;
@@ -177,13 +179,13 @@ input {
         <h1 class="title-index">Settings</h1>
         <br>
         <div id="settings-container">
-        <div id="tab-cloaking">
+        <div id="section">
             <h3 class="title-settings">Tab Cloaking</h3>
             <button class="play-settings" onclick="schoology()">Open In Schoology</button>
             <button class="play-settings" onclick="ab()">Open In about:blank</button>
             <br>
         </div>
-                    <div id="tab-cloaking" style="height: 210px;">
+                    <div id="section" style="height: 210px;">
             <h3 class="title-settings">Game Data</h3>
                         <button class="play-settings" id="exportBtn">Export Data</button>
 <button class="play-settings" id="importBtn">Import Data</button>

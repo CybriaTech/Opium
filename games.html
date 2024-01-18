@@ -18,6 +18,7 @@
     <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
     <link rel="stylesheet" href="/css/alert.css">
     <script src="/js/alert.js"></script>
+    <script src="/js/themes.js"></script>
     <title>Games | Opium</title>
       <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
@@ -1007,32 +1008,5 @@ var msnry = new Masonry( elem, {
         search();
     });
 </script>
-<script>
-        // lunaris easter egg
-        let typedCharacters = '';
-        document.addEventListener('keypress', function(event) {
-          typedCharacters += event.key.toLowerCase();
-    
-          if (typedCharacters === 'lunaris') {
-            typedCharacters = '';
-    
-            const games = document.querySelectorAll('.game'); 
-            games.forEach(function(game) {
-              game.style.backgroundColor = '#0055ff'; 
-            });
-    
-            document.body.style.backgroundColor = '#151523';
-    
-            const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
-            favicon.type = 'image/jpeg';
-            favicon.rel = 'shortcut icon';
-            favicon.href = '/images/logo/lunarisicon.jpeg'; 
-            document.head.appendChild(favicon);
-            
-            const lunarisEvent = new Event('lunaris');
-            document.dispatchEvent(lunarisEvent);
-          }
-        });
-      </script>
 </body>
 </html>

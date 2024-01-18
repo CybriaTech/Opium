@@ -1,0 +1,59 @@
+let typedCharacters = '';
+const correctSequence1 = 'lunaris';
+const correctSequence2 = 'dragon';
+
+document.addEventListener('keypress', function(event) {
+    typedCharacters += event.key.toLowerCase();
+
+    if (typedCharacters === correctSequence1) {
+        typedCharacters = '';
+        changeTheme();
+    } else if (typedCharacters === correctSequence2) {
+        typedCharacters = '';
+        displayDragkn();
+    } else if (!correctSequence1.startsWith(typedCharacters) && !correctSequence2.startsWith(typedCharacters)) {
+        typedCharacters = '';
+    }
+});
+
+function changeTheme() {
+    const games = document.querySelectorAll('.game');
+    games.forEach(function(game) {
+        game.style.backgroundColor = '#0055ff';
+    });
+
+    document.body.style.backgroundColor = '#151523';
+
+    const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    favicon.type = 'image/jpeg';
+    favicon.rel = 'shortcut icon';
+    favicon.href = '/images/logo/lunarisicon.jpeg';
+    document.head.appendChild(favicon);
+
+    const lunarisEvent = new Event('lunaris');
+    document.dispatchEvent(lunarisEvent);
+}
+
+function displayDragon() {
+    const videoContainer = document.createElement('div');
+    videoContainer.style.position = 'fixed';
+    videoContainer.style.top = '0';
+    videoContainer.style.left = '0';
+    videoContainer.style.width = '100%';
+    videoContainer.style.height = '100%';
+    videoContainer.style.overflow = 'hidden';
+
+    const video = document.createElement('video');
+    video.src = 'images/settings/dragon.mp4';
+    video.type = 'video/mp4';
+    video.style.width = '100%';
+    video.style.height = '100%';
+    video.style.objectFit = 'cover';
+    video.setAttribute('loop', true);
+    video.setAttribute('autoplay', true);
+    video.setAttribute('controls', false);
+    video.volume = 1;
+
+    videoContainer.appendChild(video);
+    document.body.appendChild(videoContainer);
+}

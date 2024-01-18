@@ -42,7 +42,7 @@ function displayDragon() {
     videoContainer.style.width = '100%';
     videoContainer.style.height = '100%';
     videoContainer.style.overflow = 'hidden';
-    videoContainer.style.zIndex = '99999999';
+    videoContainer.style.zIndex = '9999999'; 
 
     const video = document.createElement('video');
     video.src = 'images/settings/dragon.mp4';
@@ -54,6 +54,10 @@ function displayDragon() {
     video.setAttribute('autoplay', true);
     video.setAttribute('controls', false);
     video.volume = 1;
+
+    video.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
 
     videoContainer.appendChild(video);
     document.body.appendChild(videoContainer);

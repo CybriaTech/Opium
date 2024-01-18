@@ -10,7 +10,7 @@ document.addEventListener('keypress', function(event) {
         changeTheme();
     } else if (typedCharacters === correctSequence2) {
         typedCharacters = '';
-        displayDragkn();
+        displayDragon();
     } else if (!correctSequence1.startsWith(typedCharacters) && !correctSequence2.startsWith(typedCharacters)) {
         typedCharacters = '';
     }

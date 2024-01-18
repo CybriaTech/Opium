@@ -66,3 +66,8 @@ main {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+/* hide controls for easter egg videos */
+video.hidden-controls::-webkit-media-controls {
+  display: none;
+}

@@ -52,12 +52,9 @@ function displayDragon() {
     video.style.objectFit = 'cover';
     video.setAttribute('loop', true);
     video.setAttribute('autoplay', true);
-    video.setAttribute('controls', false);
     video.volume = 1;
 
-    video.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
+    video.classList.add('hidden-controls');
 
     videoContainer.appendChild(video);
     document.body.appendChild(videoContainer);

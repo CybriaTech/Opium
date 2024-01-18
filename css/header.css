@@ -53,3 +53,8 @@ nav a:hover {
 iframe {
   background-color: #fff;
 }
+
+/* hide controls for easter egg videos */
+video.hidden-controls::-webkit-media-controls {
+  display: none;
+}

@@ -42,6 +42,7 @@ function displayDragon() {
     videoContainer.style.width = '100%';
     videoContainer.style.height = '100%';
     videoContainer.style.overflow = 'hidden';
+    videoContainer.style.zIndex = '99999999';
 
     const video = document.createElement('video');
     video.src = 'images/settings/dragon.mp4';

@@ -56,6 +56,19 @@ function displayDragon() {
 
     video.classList.add('hidden-controls');
 
+    // hopefully this doesn't get APi browser restricted
+    video.addEventListener('click', function () {
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.mozRequestFullScreen) {
+            video.mozRequestFullScreen();
+        } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+            video.msRequestFullscreen();
+        }
+    });
+
     videoContainer.appendChild(video);
     document.body.appendChild(videoContainer);
 }

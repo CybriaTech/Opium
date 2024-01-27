@@ -148,16 +148,6 @@ main {
   margin-left: 0.5px;
   z-index: 2;
 }
-
-.trending-button {
-  color: #ffffff;
-  font-size: 25px;
-  border-radius: 6px 0 0 6px;
-  background-color: rgba(56, 56, 56, 0.8);
-  border: none;
-  padding-right: 45px;
-  font-family: 'Source Sans Pro', sans-serif;
-}
     </style>
 </head>
 <body>
@@ -1157,7 +1147,11 @@ var msnry = new Masonry( elem, {
         search();
     });
 
-     document.getElementById('trending-button').addEventListener('click', function () {
+ var trendingButton = document.getElementById('trending-button');
+    trendingButton.style.backgroundColor = 'rgba(56, 56, 56, 0.8)';
+    trendingButton.style.borderRadius = '10px';
+    
+    trendingButton.addEventListener('click', function () {
         filterGamesByEmoji('🔥');
     });
 

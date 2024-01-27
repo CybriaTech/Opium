@@ -1149,8 +1149,11 @@ var msnry = new Masonry( elem, {
 
  var trendingButton = document.getElementById('trending-button');
     trendingButton.style.backgroundColor = 'rgba(56, 56, 56, 0.8)';
-    trendingButton.style.borderRadius = '10px';
-    
+    trendingButton.style.borderRadius = '0.5'; //
+    trendingButton.style.width = '30px'; 
+    trendingButton.style.height = '30px'; 
+
+    // Add click event listener for the Trending button
     trendingButton.addEventListener('click', function () {
         filterGamesByEmoji('🔥');
     });

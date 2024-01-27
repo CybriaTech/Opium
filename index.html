@@ -81,7 +81,7 @@ main {
     <script src="/js/header.js"></script>
     <main>
         <h1 class="title-index">Opium</h1>
-        <h3 class="desc">The CybriaGames Sequel</h3>
+        <h3 class="desc"><!-- No words, just splash --></h3>
 
        <div class="buttons-container">
             <div class="button-row">
@@ -117,6 +117,23 @@ main {
       logo.style.width = logoWidth + 'px';
   }
   </script>
+        <script>
+        $(document).ready(function () {
+            var splash = ["Fun Fact: Opium was originally a proxy called Op1um"];
+
+            function updateSplash() {
+                var currentHour = new Date().getHours();
+                var index = currentHour % splash.length;
+                var newSplash = splash[index];
+
+                $(".desc").text(newSplash);
+            }
+
+            updateSplash();
+
+            setInterval(updateSplash, 60 * 60 * 1000);
+        });
+    </script>
 <script>
    particlesJS('particles-js', {
      particles: {

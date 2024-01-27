@@ -131,7 +131,16 @@ main {
 
         updateSplash();
 
-        setInterval(updateSplash, 10 * 60 * 1000);
+        $(window).on('beforeunload', function () {
+            sessionStorage.setItem('splashIndex', currentIndex);
+        });
+
+        var savedIndex = sessionStorage.getItem('splashIndex');
+        if (savedIndex !== null) {
+            currentIndex = parseInt(savedIndex);
+        }
+
+        updateSplash();
     });
 </script>
 

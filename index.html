@@ -117,23 +117,24 @@ main {
       logo.style.width = logoWidth + 'px';
   }
   </script>
-        <script>
-        $(document).ready(function () {
-            var splash = ["Fun Fact: Opium was originally a proxy called Op1um", "CFISD is ass"];
+<script>
+    $(document).ready(function () {
+        var splash = ["Fun Fact: Opium was originally a proxy called Op1um", "CFISD is ass"];
+        var currentIndex = 0;
 
-            function updateSplash() {
-                var currentHour = new Date().getHours();
-                var index = currentHour % splash.length;
-                var newSplash = splash[index];
+        function updateSplash() {
+            var newSplash = splash[currentIndex];
+            $(".desc").text(newSplash);
 
-                $(".desc").text(newSplash);
-            }
+            currentIndex = (currentIndex + 1) % splash.length;
+        }
 
-            updateSplash();
+        updateSplash();
 
-            setInterval(updateSplash, 10 * 60 * 1000);
-        });
-    </script>
+        setInterval(updateSplash, 10 * 60 * 1000);
+    });
+</script>
+
 <script>
    particlesJS('particles-js', {
      particles: {

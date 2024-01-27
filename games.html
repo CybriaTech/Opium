@@ -157,7 +157,7 @@ main {
     <div id="search">
     <input type="text" class="search-bar" placeholder="Search For A Game...">
     <button class="search-enter"><i class="fas fa-search"></i></button>
-    <button id="trending-button">🔥 Trending</button>
+    <button id="trending-button">🔥</button>
     </div>
     <main>
         <div id="games">
@@ -1149,9 +1149,10 @@ var msnry = new Masonry( elem, {
 
  var trendingButton = document.getElementById('trending-button');
     trendingButton.style.backgroundColor = 'rgba(56, 56, 56, 0.8)';
-    trendingButton.style.borderRadius = '0.5'; //
-    trendingButton.style.width = '30px'; 
+    trendingButton.style.borderRadius = '0';
+    trendingButton.style.width = '30px';
     trendingButton.style.height = '30px'; 
+    trendingButton.style.marginRight = '10px'; 
 
     // Add click event listener for the Trending button
     trendingButton.addEventListener('click', function () {
@@ -1172,6 +1173,5 @@ var msnry = new Masonry( elem, {
             }
         });
     }
-</script>
 </body>
 </html>

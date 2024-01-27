@@ -157,6 +157,7 @@ main {
     <div id="search">
     <input type="text" class="search-bar" placeholder="Search For A Game...">
     <button class="search-enter"><i class="fas fa-search"></i></button>
+    <button id="trending-button">🔥 Trending</button>
     </div>
     <main>
         <div id="games">
@@ -217,7 +218,7 @@ main {
         <div class="game">
 <a href="/games/a-small-world-cup">
 <img alt="img" src="/images/games/a-small-world-cup.jpeg"/>
-<p class="game-title">A Small World Cup</p>
+<p class="game-title">A Small World Cup 🔥</p>
 </a>
 </div>
         <div class="game">
@@ -607,7 +608,7 @@ main {
         <div class="game">
 <a href="/games/basketball-stars">
 <img alt="img" src="/images/games/basketball-stars.png"/>
-<p class="game-title">Basketball Stars</p>
+<p class="game-title">Basketball Stars 🔥</p>
 </a>
 </div>
         <div class="game">
@@ -1145,6 +1146,25 @@ var msnry = new Masonry( elem, {
     document.querySelector('.search-bar').addEventListener('input', function () {
         search();
     });
+
+     document.getElementById('trending-button').addEventListener('click', function () {
+        filterGamesByEmoji('🔥');
+    });
+
+    function filterGamesByEmoji(emoji) {
+        var gameTitles = document.querySelectorAll('.game-title');
+
+        gameTitles.forEach(function (title) {
+            var gameTitleText = title.innerText.toLowerCase();
+            var gameElement = title.closest('.game');
+
+            if (gameTitleText.includes(emoji)) {
+                gameElement.style.display = 'block';
+            } else {
+                gameElement.style.display = 'none';
+            }
+        });
+    }
 </script>
 </body>
 </html>

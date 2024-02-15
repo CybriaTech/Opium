@@ -24,7 +24,7 @@ https://bewildered-tweed-jacket-pike.cyclic.app/
 
 https://opiumm.pages.dev
 
-https://opium-gmes.pages.dev
+https://op1umm.pages.dev
 
 # Socials
 

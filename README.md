@@ -8,7 +8,10 @@
 
 🕹Go past the boundaries with Opium! Our service hosts over 100+ unblocked games, includes many selectable proxies, emulators, and tab cloakers. And guess what? All of it is free with no fees at all for anything! 🎮
 
-### Testing Site: https://opium-tst.neocities.org
+![GitHub Repo size](https://img.shields.io/github/repo-size/CybriaTech/Opium)
+![GitHub Repo stars](https://img.shields.io/github/stars/CybriaTech/Opium)
+![GitHub Repo forks](https://img.shields.io/github/forks/CybriaTech/Opium)
+
 
 ## Active Domains
 
@@ -25,6 +28,8 @@ https://bewildered-tweed-jacket-pike.cyclic.app/
 https://opiumm.pages.dev
 
 https://op1umm.pages.dev
+
+### Testing Site: https://opium-tst.neocities.org
 
 # Socials
 

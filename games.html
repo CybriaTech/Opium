@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js "></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <meta name="description" content="🕹Opium Games is a free unblocked games service hosting over 100+ unblocked games, also includes many selectable proxies and emulators to use along with tab cloakers and history hiders! 🎮">
     <meta name="author" content="CybriaTech">
     <meta name="keywords" content="games, unblocked games, unblocked games, video games, unity, webgl, swf, html5, cybriagames, cybriagames sequel, emulators">
@@ -154,10 +155,12 @@ main {
     <script src="/js/header.js"></script>
     <script src="/js/sorting.js" async></script>
     <br>
+    <div id="loading-message">Loading games...</div>
+    <br>
     <div id="search">
-    <input type="text" class="search-bar" placeholder="Search For A Game...">
-    <button class="search-enter"><i class="fas fa-search"></i></button>
-    <button id="trending-button">🔥</button>
+        <input type="text" class="search-bar" placeholder="Search For A Game...">
+        <button class="search-enter"><i class="fas fa-search"></i></button>
+        <button id="trending-button">🔥</button>
     </div>
     <main>
         <div id="games">
@@ -1185,32 +1188,7 @@ var msnry = new Masonry( elem, {
   itemSelector: '.game',
   columnWidth: 200
 });
-</script>
-<script>
-    $(document).ready(function() {
-        var games = $('#games .game').get();
-
-        games.sort(function(a, b) {
-            var titleA = $(a).find('.game-title').text().toUpperCase();
-            var titleB = $(b).find('.game-title').text().toUpperCase();
-
-            var isTitleANumber = /^\d+$/.test(titleA);
-            var isTitleBNumber = /^\d+$/.test(titleB);
-
-            if ((isTitleANumber && isTitleBNumber) || (!isTitleANumber && !isTitleBNumber)) {
-                return titleA.localeCompare(titleB);
-            } else {
-                return isTitleBNumber - isTitleANumber;
-            }
-        });
-
-        $('#games').empty();
-
-        $.each(games, function(index, game) {
-            $('#games').append(game);
-        });
-    });
-</script>
+</script>  
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/settings.js"></script>

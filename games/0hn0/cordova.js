@@ -1,2 +1,0 @@
-// placeholder
-window.isWebApp = true;

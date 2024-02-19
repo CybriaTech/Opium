@@ -10,7 +10,7 @@
 
 ![GitHub Repo size](https://img.shields.io/github/repo-size/CybriaTech/Opium)
 ![GitHub Repo stars](https://img.shields.io/github/stars/CybriaTech/Opium)
-![GitHub Repo forks](https://img.shields.io/github/forks/CybriaTech/Opium)
+![GitHub Repo forks](http://img.shields.io/github/forks/CybriaTech/Opium)
 
 
 ## Active Domains

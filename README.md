@@ -6,7 +6,7 @@
 
 <h1 align="center">Opium™</h1>
 
-🕹Go past the boundaries with Opium! Our service hosts over 100+ unblocked games, includes many selectable proxies, emulators, and tab cloakers. And guess what? All of it is free with no fees at all for anything! 🎮
+🕹Go past the boundaries with Opium! Our mainstream service hosts over 100+ unblocked games, includes many selectable proxies, emulators, and tab cloakers. Here's the best part though – everything is free! No need to pay for anything at all for free access and fun. 🎮
 
 ![GitHub Repo size](https://img.shields.io/github/repo-size/CybriaTech/Opium)
 ![GitHub Repo stars](https://img.shields.io/github/stars/CybriaTech/Opium)
@@ -14,20 +14,22 @@
 
 
 ## Active Domains
+### Our Main Repository
 
-https://op1um.pages.dev
+#### https://op1um.pages.dev 
 
-https://opium-games.com/
+#### https://opium-games.com/
 
-https://opium.cybriatech.dev
+#### https://opium.cybriatech.dev
 
-https://opium-games.onrender.com/
+#### https://opium-games.onrender.com/
 
-https://bewildered-tweed-jacket-pike.cyclic.app/
+#### https://bewildered-tweed-jacket-pike.cyclic.app/
+### Backed Up Repositories
 
-https://opiumm.pages.dev
+#### https://opiumm.pages.dev
 
-https://op1umm.pages.dev
+#### https://op1umm.pages.dev
 
 ### Testing Site: https://opium-tst.neocities.org
 

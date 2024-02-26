@@ -94,57 +94,6 @@ main {
             </div>
        </div>
     </main>
-<div id="versionContent"></div>
-<script>
-    function checkVersion(url) {
-        fetch(url)
-            .then(response => {
-                if (response.ok) {
-                    return response.text();
-                } else {
-                    alert("Failed to fetch version file");
-                    throw new Error("Failed to fetch version file");
-                }
-            })
-            .then(latestVersion => {
-                fetch('https://raw.githubusercontent.com/CybriaTech/Opium/main/VERSION.txt')
-                    .then(response => response.text())
-                    .then(requiredVersion => {
-                        const cleanedLatestVersion = latestVersion.trim().replace(/^v|version/i, '');
-                        const cleanedRequiredVersion = requiredVersion.trim().replace(/^v|version/i, '');
-
-                        if (cleanedLatestVersion !== cleanedRequiredVersion) {
-                            fetch('VERSION.txt')
-                                .then(response => response.text())
-                                .then(forkedVersion => {
-                                    if (cleanedLatestVersion !== forkedVersion.trim().replace(/^v|version/i, '')) {
-                                        alert("Outdated Version - Please update your website!");
-                                    } else {
-                                        document.getElementById("versionContent").innerText = latestVersion;
-                                    }
-                                })
-                                .catch(error => {
-                                    alert("Failed to fetch version from forked repo");
-                                    console.error('Error fetching version from forked repo:', error);
-                                });
-                        } else {
-                            document.getElementById("versionContent").innerText = latestVersion;
-                        }
-                    })
-                    .catch(error => {
-                        alert("Failed to fetch required version");
-                        console.error('Error fetching required version:', error);
-                    });
-            })
-            .catch(error => {
-                alert("Outdated Version - Please update your website!");
-                console.error('Error fetching version file:', error);
-            });
-    }
-
-    const versionFileUrl = "https://opium-games.com/VERSION.txt";
-    checkVersion(versionFileUrl);
-</script>
     <div id="particles-js"></div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script type="module">
@@ -191,7 +140,7 @@ main {
   </script>
 <script>
     $(document).ready(function () {
-        var splash = ["Fun Fact: Opium was originally a proxy called Op1um", "Luke is watching", "move if your a furry🤨", "TELL EVERYONE AT SCHOOL YOU LOVE OPIUM", "I am sigma", "Assassass", "SKIBBITY TOILET!", "Opium V1 coming soon..", "Fun Fact: Opium Games references to the Opium drug since they're both addictive", "I <3 Cybria", "Fun Fact: Opium's B-Day Is November 21", "noah m loves you", "Scott was here lol", "who is sc0tt?!", "V0.92", "on skibidi?!", "X-88 + Sc0tt = W Duo"];
+        var splash = ["Fun Fact: Opium was originally a proxy called Op1um", "move if your a furry🤨", "TELL EVERYONE AT SCHOOL YOU LOVE OPIUM", "I am sigma", "Assassass", "SKIBBITY TOILET!", "Opium V1 coming soon..", "Fun Fact: Opium Games references to the Opium drug since they're both addictive", "I <3 Cybria", "Fun Fact: Opium's B-Day Is November 21", "noah m loves you", "Scott was here lol", "who is sc0tt?!", "Fun Fact: Check out Opium's current version at /VERSION.txt", "on skibidi?!", "X-88 + Sc0tt = W Duo"];
 
         function randomize(array) {
             for (var i = array.length - 1; i > 0; i--) {

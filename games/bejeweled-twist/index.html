@@ -14,10 +14,11 @@
   <link rel="icon" href="/images/logo/favi/logo-16x16.png" sizes="16x16">
   <link rel="icon" href="/images/logo/favi/logo-32x32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/logo/favi/apple-touch-icon.png" sizes="180x180">
-  <title>Papa's Sushiria | Opium</title>
+  <title>Bejeweled Twist | Opium</title>
   <link rel="stylesheet" href="/css/index.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-20CSCVKLF3"></script>
+  <script src="/js/gameapi.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -34,22 +35,22 @@
 
   <script>
     window.addEventListener("load", function() {
-      var loadingScreen = document.getElementById("loading-screen");
-      var gameIframe = document.getElementById("game-iframe");
+        var loadingScreen = document.getElementById("loading-screen");
+        var gameIframe = document.getElementById("game-iframe");
 
-      loadingScreen.style.opacity = 1;
+        loadingScreen.style.opacity = 1;
 
-      setTimeout(function() {
-        loadingScreen.style.transition = "opacity 1s ease-in";
-        loadingScreen.style.opacity = 0;
-      }, 1500);
+        setTimeout(function() {
+            loadingScreen.style.transition = "opacity 1s ease-in";
+            loadingScreen.style.opacity = 0;
+        }, 1500);
 
-      setTimeout(function() {
-        loadingScreen.style.display = "none";
-        gameIframe.style.display = "block";
-        gameIframe.src = "https://cocaine.pages.dev/games/bjt/";
-      }, 3000);
+        setTimeout(function() {
+            loadingScreen.style.display = "none";
+            gameIframe.style.display = "block";
+            replaceDomain('/games/bjt');
+        }, 3000);
     });
-  </script>
+</script>
 </body>
 </html>

@@ -26,6 +26,35 @@
 
     gtag('config', 'G-20CSCVKLF3');
   </script>
+      </script>
+      <style>
+        .logo {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .logo img {
+            width: 69px;
+            height: 50px;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1);
+        }
+
+        .logo:active img {
+            transform: scale(1.1);
+        }
+    </style>
+
+    <script>
+        function nil(event) {
+            event.preventDefault();
+        }
+    </script>
 </head>
 <body style="margin: 0; padding: 0; background-color: #fff;">
   <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 1s ease-out;">
@@ -52,5 +81,8 @@
         }, 3000);
     });
   </script>
+      <div class="logo" onclick="nil(event)" alt="Opium" target="_blank">
+        <img src="/images/logo/opium-api.png" alt="Opium Logo">
+    </div>
 </body>
 </html>

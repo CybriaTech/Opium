@@ -2,7 +2,7 @@ document.write(`
   <header>
     <a class="title" href="/">
       <img src="/images/logo/opium-clear.png" width="128" height="128">
-      <h2>Opium</h2>
+      <h2>Cocainium</h2>
     </a>
     <nav>
       <a href="/games.html"><i class="fas fa-gamepad"></i></a>

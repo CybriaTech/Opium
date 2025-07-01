@@ -6,7 +6,8 @@
 
 <h1 align="center">Opium™</h1>
 
-<h1>OPIUM WILL BE ARCHIVED DUE TO THE FACT THE GAME FILES ARE FUCKED UP + LOSS OF INTEREST</h1>
+<h1>⚠️ OPIUM HAS BEEN ARCHIVED DUE TO CORRUPTION AS OF JULY 7, 2024. ⚠️</h1>
+<h1>❤️ THANK YOU TO THOSE SUPPORTING OPIUM GAMES. ❤️</h1>
 
 🕹Go past the boundaries with Opium! Our mainstream service hosts over 100+ unblocked games, includes many selectable proxies, emulators, and tab cloakers. Here's the best part though – everything is free! No need to pay for anything at all for free access and fun. 🎮
 
